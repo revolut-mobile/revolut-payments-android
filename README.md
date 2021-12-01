@@ -1,25 +1,24 @@
-# **Get started with the Revolut Pay SDK for Android**
+# **Revolut Pay SDK - Android documentation**
+The Revolut Pay SDK for iOS lets you accept [Revolut Pay](https://www.revolut.com/help/making-payments/what-is-revolut-pay-payment-method) payments from Revolut users directly from your app. It is designed for easy implementation and usage. The SDK allows you to create a Revolut Pay button and interact with the Revolut Retail app to verify the payment status.
+
+**NOTE**
+
+In order to use and accept payment via Revolut Pay, you need to have been [accepted as a Merchant](https://www.revolut.com/business/help/merchant-accounts/getting-started/how-do-i-apply-for-a-merchant-account) in your [Revolut Business](https://business.revolut.com/merchant) account.
+### Get started with the Revolut Pay SDK for Android
 Set up the Revolut Pay SDK to accept Revolut Pay payments directly in your app. It requires 5 steps:
 
-1. Apply for a merchant account and get your merchant API key
 
-2. Install the SDK
+1. Install the SDK
 
-3. Configure the SDK
+2. Configure the SDK
+
+3. Get your merchant API key
 
 4. Create an order
 
 5. Button instantiation
 
-### 1. Apply for a Merchant account and get your merchant API key
-Before you begin, apply for a Merchant account in your [Revolut Business](https://business.revolut.com/merchant) account. If your application is successful, you receive an email notification and can access your Merchant account right away.
-
-After that you can generate the [Merchant API page](https://business.revolut.com/settings/merchant-api). You need it as part of the authorization header for each Merchant API request.
-
-**NOTE**
-
-Use this key only for the production environment. For the [Revolut Business Sandbox environment](https://sandbox-business.revolut.com/), use the [sandbox API key](https://sandbox-business.revolut.com/settings/merchant-api). For more information, see [Test in the Sandbox environment](https://developer.revolut.com/docs/accept-payments/tutorials/test-in-the-sandbox-environment/configuration)
-### 2. Install the SDK
+### 1. Install the SDK
 1. Since the SDK is hosted on mavenCentral, in order to fetch the dependency please add the following lines to your project level build.gradle:
 ```
 allprojects {
@@ -28,18 +27,18 @@ allprojects {
     }
 }
 ```
-2. Add the dependency to the module level build.gradle:
+2. Add the dependency to the module level build.gradle. Please use the latest 1.0.1 version
 ```
-implementation 'com.revolut:revolutpay:1.0.0'
+implementation 'com.revolut:revolutpay:1.0.1'
 ```
 3. Sync your project
 
-### 3. Configure the SDK
-Initialise the SDK by invoking `RevolutPay.init()`, where you will need to define:
+### 2. Configure the SDK
+Initialise the SDK by invoking `RevolutPay.init(environment: RevolutPayEnvironment, returnUrl: String?)`, where you will need to define:
 
 1. `environment` : either `PROD` or `SANDBOX`. You can use the Revolut Business Sandbox environment to test your Merchant account integration before you push the code changes to the production environment.
 
-2. `returnUrl`  : deep link which is going to be used by Revolut app to return back to your app after the payment is confirmed or rejected. Providing this field will greatly improve the customer experience as it will allow them to return to your app after they authorize the payment. The deep link should be registered in manifest to allow opening an activity if you want to support automatic redirection. Please note that the `returnUrl` might be as well based on a custom host+scheme that can be defined within your application. Here’s an example of an activity that can handle `returnUrl` (please note that the launchMode should be set to `singleTop`, otherwise it will not be possible to return back to your app):
+2. `returnUrl`  : an optional deep link which is going to be used by Revolut app to return back to your app after the payment is confirmed or rejected. Providing this field will greatly improve the customer experience as it will allow them to return to your app after they authorize the payment. The deep link should be registered in manifest to allow opening an activity if you want to support automatic redirection. Please note that the `returnUrl` might be as well based on a custom host+scheme that can be defined within your application. Here is an example of an activity that can handle `returnUrl` (please note that the launchMode should be set to `singleTop`, otherwise it will not be possible to return back to your app):
 ```
 <activity
     android:name=".MainActivity"
@@ -62,11 +61,17 @@ If your app does not support universal links, providing the `returnUrl` will tri
 
 **NOTE**
 
-Since the SDK provides a method for polling the state of the order from BE, you need to make sure that the internet permission is added for your app. If it doesn't, please add the following line to the manifest:
+Since the SDK provides a method for polling the state of the order from BE, you need to make sure that the internet permission is added for your app. If it isn't, please add the following line to the manifest:
 ```
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
+### 3. Get your merchant API key
+Go to your Revolut app to generate the [Merchant API key](https://business.revolut.com/settings/merchant-api). You need it as part of the authorisation header for each Merchant API request.
+
+**NOTE**
+
+Use this key only for the production environment. For the [Revolut Business Sandbox environment](https://sandbox-business.revolut.com/), use the [sandbox API key](https://sandbox-business.revolut.com/settings/merchant-api). For more information, see [Test in the Sandbox environment](https://developer.revolut.com/docs/accept-payments/tutorials/test-in-the-sandbox-environment/configuration)
 ### 4. Create an order
 When a user decides to make a purchase on your e-commerce website, on the server side, you create an order by sending a `POST` request to `https://merchant.revolut.com/api/1.0/orders`. You must include the authorization header in the request, which is in the following format:
 
@@ -187,12 +192,16 @@ For checking the current state of an order you should use `RevolutPay.fetchOrder
 
 `FAILED` - the order was failed
 
+**NOTE**
+
+The `RevolutPay.fetchOrderState(publicId)` makes a synchronous network request in order to fetch the order state, therefore it should only be invoked from a background thread.
+
 The `RevolutPayButton` also provides methods to show/hide progress inside the button (`showLoadingProgress()`/`hideLoadingProgress()`). Normally progress should be shown only when the last fetched state of order is `PENDING` and hidden for any other state. In simple words, this indicator is meant for showing that the order is being processed at the moment, not for showing the fact that order state is being polled in background.
 
 # Methods available
 Mandatory SDK initialization:
 ```
-RevolutPay.init(environment: RevolutPayEnvironment, returnUrl: String)
+RevolutPay.init(environment: RevolutPayEnvironment, returnUrl: String?)
 ```
 Button instantiation:
 ```
@@ -202,7 +211,7 @@ RevolutPay.provideButton(
         params: ButtonParams
     ): RevolutPayButton
 ```
-Fetch current state of an order:
+Make a synchronous network request to fetch the current state of an order:
 ```
 RevolutPay.fetchOrderState(publicId)
 ```
