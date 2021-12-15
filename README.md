@@ -1,5 +1,5 @@
 # **Revolut Pay SDK - Android documentation**
-The Revolut Pay SDK for iOS lets you accept [Revolut Pay](https://www.revolut.com/help/making-payments/what-is-revolut-pay-payment-method) payments from Revolut users directly from your app. It is designed for easy implementation and usage. The SDK allows you to create a Revolut Pay button and interact with the Revolut Retail app to verify the payment status.
+The Revolut Pay SDK for Android lets you accept [Revolut Pay](https://www.revolut.com/help/making-payments/what-is-revolut-pay-payment-method) payments from Revolut users directly from your app. It is designed for easy implementation and usage. The SDK allows you to create a Revolut Pay button and interact with the Revolut Retail app to verify the payment status.
 
 **NOTE**
 
