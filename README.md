@@ -27,9 +27,9 @@ allprojects {
     }
 }
 ```
-2. Add the dependency to the module level build.gradle. Please use the latest 1.0.1 version
+2. Add the dependency to the module level build.gradle. Please use the latest 1.0.2 version
 ```
-implementation 'com.revolut:revolutpay:1.0.1'
+implementation 'com.revolut:revolutpay:1.0.2'
 ```
 3. Sync your project
 
