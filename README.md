@@ -33,6 +33,10 @@ implementation 'com.revolut:revolutpay:1.0.2'
 ```
 3. Sync your project
 
+**NOTE**
+
+The minimum SDK version that is supported by the SDK is Android 5.0 (API 21).
+
 ### 2. Configure the SDK
 Initialise the SDK by invoking `RevolutPay.init(environment: RevolutPayEnvironment, returnUrl: String?)`, where you will need to define:
 
@@ -64,6 +68,13 @@ If your app does not support universal links, providing the `returnUrl` will tri
 Since the SDK provides a method for polling the state of the order from BE, you need to make sure that the internet permission is added for your app. If it isn't, please add the following line to the manifest:
 ```
 <uses-permission android:name="android.permission.INTERNET" />
+```
+Also please note that if your app targets Android 11 (API level 30) or higher then you'll need to add the following code to your manifest in order to allow the SDK to check for the presence of the Revolut app on your client's device:
+
+```
+<queries>
+    <package android:name="com.revolut.revolut" />
+</queries>
 ```
 
 ### 3. Get your merchant API key
