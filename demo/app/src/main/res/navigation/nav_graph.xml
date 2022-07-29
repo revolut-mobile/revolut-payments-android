@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:route="@string/configure_sdk"
+    app:startDestination="@id/RevolutPayDemoFragment">
+
+    <fragment
+        android:id="@+id/RevolutPayDemoFragment"
+        android:name="com.revolut.revolutpay.revolutpaydemo.main.RevolutPayDemoFragment"
+        android:label="@string/revolut_pay_demo"
+        tools:layout="@layout/fragment_revolut_pay_demo">
+        <action
+            android:id="@+id/action_RevolutPayDemoFragment_to_ConfigureSdkFragment"
+            app:destination="@id/ConfigureSdkFragment" />
+        <action
+            android:id="@+id/action_RevolutPayDemoFragment_to_CheckoutExampleFragment"
+            app:destination="@id/CheckoutExampleFragment" />
+        <action
+            android:id="@+id/action_RevolutPayDemoFragment_to_ButtonStylesFragment"
+            app:destination="@id/ButtonStylesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ConfigureSdkFragment"
+        android:name="com.revolut.revolutpay.revolutpaydemo.configuresdk.ConfigureSdkFragment"
+        android:label="@string/configure_sdk"
+        tools:layout="@layout/fragment_configure_sdk" />
+
+    <fragment
+        android:id="@+id/CheckoutExampleFragment"
+        android:name="com.revolut.revolutpay.revolutpaydemo.checkout.CheckoutExampleFragment"
+        android:label="@string/checkout_example"
+        tools:layout="@layout/fragment_checkout_example" />
+
+    <fragment
+        android:id="@+id/ButtonStylesFragment"
+        android:name="com.revolut.revolutpay.revolutpaydemo.buttons.ButtonStylesFragment"
+        android:label="@string/button_styles"
+        tools:layout="@layout/fragment_button_styles" />
+
+</navigation>
