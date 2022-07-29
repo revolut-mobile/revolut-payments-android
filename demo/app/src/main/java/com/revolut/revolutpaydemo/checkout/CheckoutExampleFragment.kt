@@ -1,4 +1,4 @@
-package com.revolut.revolutpay.revolutpaydemo.checkout
+package com.revolut.revolutpaydemo.checkout
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.revolut.revolutpay.api.OrderResultCallback
 import com.revolut.revolutpay.api.createController
-import com.revolut.revolutpay.revolutpaydemo.R
-import com.revolut.revolutpay.revolutpaydemo.utils.Defaults
-import com.revolut.revolutpay.revolutpaydemo.databinding.FragmentCheckoutExampleBinding as Binding
+import com.revolut.revolutpaydemo.R
+import com.revolut.revolutpaydemo.utils.Defaults
+import com.revolut.revolutpaydemo.databinding.FragmentCheckoutExampleBinding as Binding
 
 class CheckoutExampleFragment : Fragment() {
 

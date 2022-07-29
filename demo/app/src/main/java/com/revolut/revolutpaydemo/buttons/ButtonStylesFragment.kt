@@ -1,11 +1,11 @@
-package com.revolut.revolutpay.revolutpaydemo.buttons
+package com.revolut.revolutpaydemo.buttons
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.revolut.revolutpay.revolutpaydemo.databinding.FragmentButtonStylesBinding as Binding
+import com.revolut.revolutpaydemo.databinding.FragmentButtonStylesBinding as Binding
 
 class ButtonStylesFragment : Fragment() {
 

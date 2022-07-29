@@ -1,4 +1,4 @@
-package com.revolut.revolutpay.revolutpaydemo
+package com.revolut.revolutpaydemo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.revolut.revolutpay.revolutpaydemo.databinding.ActivityDemoBinding
+import com.revolut.revolutpaydemo.databinding.ActivityDemoBinding
 
 class RevolutPayDemoActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration

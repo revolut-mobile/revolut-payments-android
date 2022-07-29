@@ -1,4 +1,4 @@
-package com.revolut.revolutpay.revolutpaydemo.configuresdk
+package com.revolut.revolutpaydemo.configuresdk
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +8,10 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.revolut.revolutpay.api.RevolutPayEnvironment
 import com.revolut.revolutpay.api.revolutPay
-import com.revolut.revolutpay.revolutpaydemo.R
-import com.revolut.revolutpay.revolutpaydemo.utils.Defaults
+import com.revolut.revolutpaydemo.R
+import com.revolut.revolutpaydemo.utils.Defaults
 import com.revolut.revolutpayments.RevolutPayments
-import com.revolut.revolutpay.revolutpaydemo.databinding.FragmentConfigureSdkBinding as Binding
+import com.revolut.revolutpaydemo.databinding.FragmentConfigureSdkBinding as Binding
 
 class ConfigureSdkFragment : Fragment() {
 

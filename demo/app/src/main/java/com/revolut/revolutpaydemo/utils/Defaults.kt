@@ -1,4 +1,4 @@
-package com.revolut.revolutpay.revolutpaydemo.utils
+package com.revolut.revolutpaydemo.utils
 
 import android.net.Uri
 import com.revolut.revolutpay.api.RevolutPayEnvironment

@@ -1,4 +1,4 @@
-package com.revolut.revolutpay.revolutpaydemo.main
+package com.revolut.revolutpaydemo.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.revolut.revolutpay.api.revolutPay
-import com.revolut.revolutpay.revolutpaydemo.R
+import com.revolut.revolutpaydemo.R
 import com.revolut.revolutpayments.RevolutPayments
-import com.revolut.revolutpay.revolutpaydemo.databinding.FragmentRevolutPayDemoBinding as Binding
+import com.revolut.revolutpaydemo.databinding.FragmentRevolutPayDemoBinding as Binding
 
 class RevolutPayDemoFragment : Fragment() {
 
