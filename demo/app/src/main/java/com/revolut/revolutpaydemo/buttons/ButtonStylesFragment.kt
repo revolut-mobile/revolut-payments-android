@@ -9,18 +9,9 @@ import com.revolut.revolutpaydemo.databinding.FragmentButtonStylesBinding as Bin
 
 class ButtonStylesFragment : Fragment() {
 
-    private var binding: Binding? = null
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = Binding.inflate(inflater, container, false)
-        .also { binding = it }
-        .root
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
-    }
+    ): View = Binding.inflate(inflater, container, false).root
 }
