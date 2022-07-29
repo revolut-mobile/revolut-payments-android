@@ -48,7 +48,6 @@ class CheckoutExampleFragment : Fragment() {
                         }
 
                         override fun onOrderFailed(throwable: Throwable) {
-                            throwable.printStackTrace()
                             Toast.makeText(
                                 this@CheckoutExampleFragment.context,
                                 R.string.checkout_failed,
