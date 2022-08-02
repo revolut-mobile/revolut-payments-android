@@ -49,7 +49,8 @@ class ConfigureSdkFragment : Fragment() {
     }
 
     private fun Binding.updateRevolutPayConfig() {
-        Defaults.merchantPublicKey = revolutPayMerchantPublicKeyEditText.text.toString()
+        val merchantPublicKey = revolutPayMerchantPublicKeyEditText.text.toString()
+        Defaults.merchantPublicKey = merchantPublicKey
         Defaults.environment = when (revolutPayEnvironmentGroup.checkedButtonId) {
             R.id.revolutPayEnvironmentProductionButton -> RevolutPayEnvironment.MAIN
             R.id.revolutPayEnvironmentSandboxButton -> RevolutPayEnvironment.SANDBOX
@@ -59,7 +60,7 @@ class ConfigureSdkFragment : Fragment() {
         RevolutPayments.revolutPay.init(
             environment = Defaults.environment,
             returnUri = Defaults.returnUri,
-            merchantPublicKey = Defaults.merchantPublicKey
+            merchantPublicKey = merchantPublicKey
         )
     }
 
