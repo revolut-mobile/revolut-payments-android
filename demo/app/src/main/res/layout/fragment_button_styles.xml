@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/buttonStylesExampleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_styles"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/revolutPayVariantsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/variants"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonStylesExampleTitle" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_Radius="Medium"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_Radius="Medium"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Light"
+            app:revolutPay_VariantLightTheme="Dark" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_Radius="Medium"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="DarkOutlined"
+            app:revolutPay_VariantLightTheme="LightOutlined" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_Radius="Medium"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="LightOutlined"
+            app:revolutPay_VariantLightTheme="DarkOutlined" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/revolutPayAttachmentsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/attachments"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonStylesExampleTitle" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_Radius="Medium"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="None"
+            app:revolutPay_Radius="Medium"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/revolutPayRadiusTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/radius"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_Radius="Large"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_Radius="Medium"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_Radius="Small"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_Radius="None"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/revolutPaySizeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/size"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="None"
+            app:revolutPay_Radius="Large"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="None"
+            app:revolutPay_Radius="Large"
+            app:revolutPay_Size="Medium"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="None"
+            app:revolutPay_Radius="Large"
+            app:revolutPay_Size="Small"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="None"
+            app:revolutPay_Radius="Large"
+            app:revolutPay_Size="ExtraSmall"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/revolutPayCurrenciesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/currency"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_BoxTextCurrency="EUR"
+            app:revolutPay_BoxTextValue="Medium"
+            app:revolutPay_Radius="Small"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_BoxTextCurrency="USD"
+            app:revolutPay_BoxTextValue="High"
+            app:revolutPay_Radius="Small"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+        <com.revolut.revolutpay.ui.button.RevolutPayButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:revolutPay_BoxText="GetCashbackValue"
+            app:revolutPay_BoxTextCurrency="GBP"
+            app:revolutPay_BoxTextValue="Medium"
+            app:revolutPay_Radius="Small"
+            app:revolutPay_Size="Large"
+            app:revolutPay_VariantDarkTheme="Dark"
+            app:revolutPay_VariantLightTheme="Light" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
