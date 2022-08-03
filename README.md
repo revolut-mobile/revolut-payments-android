@@ -1,4 +1,4 @@
-# **Revolut Pay SDK - Android documentation**
+# Revolut Pay: Android SDK
 
 The Revolut Pay SDK for Android lets you
 accept [Revolut Pay](https://www.revolut.com/help/making-payments/what-is-revolut-pay-payment-method)
@@ -12,19 +12,19 @@ In order to use and accept payment via Revolut Pay, you need to have
 been [accepted as a Merchant](https://www.revolut.com/business/help/merchant-accounts/getting-started/how-do-i-apply-for-a-merchant-account)
 in your [Revolut Business](https://business.revolut.com/merchant) account.
 
-### Get started with the Revolut Pay SDK for Android
+## Get started with the Revolut Pay SDK for Android
 
 Set up the Revolut Pay SDK to accept Revolut Pay payments directly in your app. It requires 5 steps:
 
-1. [Install the SDK](#markdown-header-1.-install-the-sdk)
+1. [Install the SDK](#markdown-header-install-the-sdk)
 
-2. Configure the SDK
+2. [Configure the SDK](#markdown-header-configure-the-sdk)
 
-3. Get your merchant API key
+3. [Get your merchant API key](#markdown-header-get-your-merchant-api-key)
 
-4. Button instantiation
+4. [Button instantiation](#markdown-header-button-instantiation)
 
-### 1. Install the SDK
+### Install the SDK
 
 1. Since the SDK is hosted on mavenCentral, in order to fetch the dependencies please add the
    following lines to your project level build.gradle:
