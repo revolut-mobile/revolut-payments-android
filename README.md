@@ -1,5 +1,8 @@
 # Revolut Pay: Android SDK
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.revolut/revolutpay/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.revolut/revolutpay)
+
+
 The Revolut Pay SDK for Android lets you
 accept [Revolut Pay](https://www.revolut.com/help/making-payments/what-is-revolut-pay-payment-method)
 payments from Revolut users directly from your app. It is designed for easy implementation and
@@ -37,7 +40,7 @@ allprojects {
 }
 ```
 
-2. Add the dependency to the module level build.gradle:
+2. Add the following dependencies to the module level build.gradle:
 
 ```groovy
 implementation 'com.revolut:revolutpayments:1.0.0'
@@ -152,7 +155,7 @@ RevolutPayments.revolutPay.provideButton(
 You can also integrate the button into your layout by adding it to an .xml file in the `layout`
 directory.
 
-```
+```xml
 <com.revolut.revolutpay.ui.button.RevolutPayButton
     android:id="@+id/revolut_pay_button"
     android:layout_width="wrap_content"
@@ -191,7 +194,7 @@ mode
 
 ###### Available style settings:
 
-```
+```kotlin
 enum class Size {
     EXTRA_SMALL,
     SMALL,
@@ -311,7 +314,7 @@ where the Revolut Pay button is integrated.
 
 Mandatory SDK initialization:
 
-```
+```kotlin
 RevolutPayments.revolutPay.init(
     environment: RevolutPayEnvironment,
     returnUri: String,
@@ -321,7 +324,7 @@ RevolutPayments.revolutPay.init(
 
 Button instantiation:
 
-```
+```kotlin
 RevolutPayments.revolutPay.provideButton(
     context: Context,
     params: ButtonParams
@@ -330,36 +333,36 @@ RevolutPayments.revolutPay.provideButton(
 
 Check if Revolut app is installed:
 
-```
+```kotlin
 RevolutPayments.revolutPay.isRevolutAppInstalled(context: Context): Boolean
 ```
 
 Set up the callback to be invoked once the user clicks the Revolut Pay button:
 
-```
+```kotlin
 Controller.setHandler(onClick: (ConfirmationFlow) -> Unit)
 ```
 
 Set up the callback to be invoked once the payment is successfully confirmed or failed:
 
-```
+```kotlin
 Controller.setOrderResultCallback(orderResultCallback: OrderResultCallback)
 ```
 
 Set up order token once the order has been created:
 
-```
+```kotlin
 ConfirmationFlow.setOrderToken(orderToken: String)
 ```
 
 Attach an instance of `Lifecycle` to the button:
 
-```
+```kotlin
 ConfirmationFlow.attachLifecycle(lifecycle: Lifecycle)
 ```
 
 Proceed with the payment once order token and lifecycle has been set:
 
-```
+```kotlin
 ConfirmationFlow.continueConfirmationFlow()
 ```
