@@ -1,48 +1,74 @@
 # **Revolut Pay SDK - Android documentation**
-The Revolut Pay SDK for Android lets you accept [Revolut Pay](https://www.revolut.com/help/making-payments/what-is-revolut-pay-payment-method) payments from Revolut users directly from your app. It is designed for easy implementation and usage. The SDK allows you to create a Revolut Pay button and interact with the Revolut Retail app to verify the payment status.
+
+The Revolut Pay SDK for Android lets you
+accept [Revolut Pay](https://www.revolut.com/help/making-payments/what-is-revolut-pay-payment-method)
+payments from Revolut users directly from your app. It is designed for easy implementation and
+usage. The SDK allows you to create a Revolut Pay button and interact with the Revolut Retail app to
+verify the payment status.
 
 **NOTE**
 
-In order to use and accept payment via Revolut Pay, you need to have been [accepted as a Merchant](https://www.revolut.com/business/help/merchant-accounts/getting-started/how-do-i-apply-for-a-merchant-account) in your [Revolut Business](https://business.revolut.com/merchant) account.
+In order to use and accept payment via Revolut Pay, you need to have
+been [accepted as a Merchant](https://www.revolut.com/business/help/merchant-accounts/getting-started/how-do-i-apply-for-a-merchant-account)
+in your [Revolut Business](https://business.revolut.com/merchant) account.
+
 ### Get started with the Revolut Pay SDK for Android
+
 Set up the Revolut Pay SDK to accept Revolut Pay payments directly in your app. It requires 5 steps:
 
-
-1. Install the SDK
+1. [Install the SDK](#markdown-header-1.-install-the-sdk)
 
 2. Configure the SDK
 
 3. Get your merchant API key
 
-4. Create an order
-
-5. Button instantiation
+4. Button instantiation
 
 ### 1. Install the SDK
-1. Since the SDK is hosted on mavenCentral, in order to fetch the dependency please add the following lines to your project level build.gradle:
-```
+
+1. Since the SDK is hosted on mavenCentral, in order to fetch the dependencies please add the
+   following lines to your project level build.gradle:
+
+```groovy
 allprojects {
     repositories {
         mavenCentral()
     }
 }
 ```
-2. Add the dependency to the module level build.gradle. Please use the latest 1.0.2 version
+
+2. Add the dependency to the module level build.gradle:
+
+```groovy
+implementation 'com.revolut:revolutpayments:1.0.0'
+implementation 'com.revolut:revolutpay:2.0.0'
 ```
-implementation 'com.revolut:revolutpay:1.0.2'
-```
+
 3. Sync your project
 
 **NOTE**
 
-The minimum SDK version that is supported by the SDK is Android 5.0 (API 21).
+The minimum Android SDK version that is supported by the SDK is Android 5.0 (API 21).
 
 ### 2. Configure the SDK
-Initialise the SDK by invoking `RevolutPay.init(environment: RevolutPayEnvironment, returnUrl: String?)`, where you will need to define:
 
-1. `environment` : either `PROD` or `SANDBOX`. You can use the Revolut Business Sandbox environment to test your Merchant account integration before you push the code changes to the production environment.
+Initialise the SDK by
+invoking `RevolutPayments.revolutPay.init(environment: RevolutPayEnvironment, returnUrl: String, merchantPublicKey: String)`
+, where you will need to define:
 
-2. `returnUrl`  : an optional deep link which is going to be used by Revolut app to return back to your app after the payment is confirmed or rejected. Providing this field will greatly improve the customer experience as it will allow them to return to your app after they authorize the payment. The deep link should be registered in manifest to allow opening an activity if you want to support automatic redirection. Please note that the `returnUrl` might be as well based on a custom host+scheme that can be defined within your application. Here is an example of an activity that can handle `returnUrl` (please note that the launchMode should be set to `singleTop`, otherwise it will not be possible to return back to your app):
+1. `environment` : either `MAIN` or `SANDBOX`. You can use the Revolut Business Sandbox environment
+   to test your Merchant account integration before you push the code changes to the production
+   environment.
+
+2. `returnUrl`  : a mandatory deep link parameter which is going to be used by Revolut app to return
+   back to your app after the payment is confirmed or rejected. This will greatly improve the
+   customer experience as it will allow them to return to your app after they authorize the payment.
+   The deep link should be registered in manifest to allow opening an activity if you want to
+   support automatic redirection. Please note that the `returnUrl` might be as well based on a
+   custom host+scheme that can be defined within your application. Here is an example of an activity
+   that can handle `returnUrl` (please note that the launchMode should be set to `singleTop`,
+   otherwise it will not be possible to return back to your app):
+
 ```
 <activity
     android:name=".MainActivity"
@@ -58,18 +84,30 @@ Initialise the SDK by invoking `RevolutPay.init(environment: RevolutPayEnvironme
     </intent-filter>
 </activity>
 ```
-If this value is not provided, the customer will continue on the Revolut app and will need to return to your app.
-If your app does not support universal links, providing the `returnUrl` will trigger the browser to attempt to open the link
 
-3. Now you can integrate the `RevolutPayButton` into your layout. It can be done both by including it into you `.xml` file, or by creating it via `RevolutPay.provideButton()`.
+If this value is not provided, the customer will continue on the Revolut app and will need to return
+to your app. If your app does not support universal links, providing the `returnUrl` will trigger
+the browser to attempt to open the link
+
+3. `merchantPublicKey` : a public key for your merchant account from Revolut console
+
+Now you can integrate the `RevolutPayButton` into your layout. It can be done both by including it
+into you `.xml` file, or by creating it using `RevolutPayments.revolutPay.provideButton()`.
 
 **NOTE**
 
-Since the SDK provides a method for polling the state of the order from BE, you need to make sure that the internet permission is added for your app. If it isn't, please add the following line to the manifest:
+Since the SDK relies on the internet connection in order to process your order, you need to make
+sure that the internet permission is added for your app. If it isn't, please add the following line
+to the manifest:
+
 ```
 <uses-permission android:name="android.permission.INTERNET" />
 ```
-Also please note that if your app targets Android 11 (API level 30) or higher then you'll need to add the following code to your manifest in order to allow the SDK to check for the presence of the Revolut app on your client's device:
+
+Also please note that if your app targets Android 11 (API level 30) or higher and you would like to
+check if the Revolut retail app is installed before showing the Revolut Pay button, then you'll need
+to add the following code to your manifest in order to allow the SDK to check for the presence of
+the Revolut app on your client's device:
 
 ```
 <queries>
@@ -78,112 +116,117 @@ Also please note that if your app targets Android 11 (API level 30) or higher th
 ```
 
 ### 3. Get your merchant API key
-Go to your Revolut app to generate the [Merchant API key](https://business.revolut.com/settings/merchant-api). You need it as part of the authorisation header for each Merchant API request.
+
+Go to your Revolut app to generate
+the [Merchant API key](https://business.revolut.com/settings/merchant-api). You need it as part of
+the authorisation header for each Merchant API request.
 
 **NOTE**
 
-Use this key only for the production environment. For the [Revolut Business Sandbox environment](https://sandbox-business.revolut.com/), use the [sandbox API key](https://sandbox-business.revolut.com/settings/merchant-api). For more information, see [Test in the Sandbox environment](https://developer.revolut.com/docs/accept-payments/tutorials/test-in-the-sandbox-environment/configuration)
-### 4. Create an order
-When a user decides to make a purchase on your e-commerce website, on the server side, you create an order by sending a `POST` request to `https://merchant.revolut.com/api/1.0/orders`. You must include the authorization header in the request, which is in the following format:
+Use this key only for the production environment. For
+the [Revolut Business Sandbox environment](https://sandbox-business.revolut.com/), use
+the [sandbox API key](https://sandbox-business.revolut.com/settings/merchant-api). For more
+information,
+see [Test in the Sandbox environment](https://developer.revolut.com/docs/accept-payments/tutorials/test-in-the-sandbox-environment/configuration)
 
-`Bearer [yourAPIKey]`
+### 4. Button instantiation
 
-Where `[yourAPIKey]` is the production API key that you [generated from your Merchant account](https://business.revolut.com/settings/merchant-api).
-
-Server side: Create an order via the Merchant API request:
-```
-curl -X "POST" "https://merchant.revolut.com/api/1.0/orders" \
-     -H 'Authorization: Bearer [yourApiKey]' \
-     -H 'Content-Type: application/json; charset=utf-8' \
-     -d $'{
-          "amount": 100,
-          "currency": "GBP"
-        }'
-```
-When the order is created successfully, the Merchant API returns a JSON array in the [response](https://developer.revolut.com/api-reference/merchant/#operation/createOrder) that looks like this:
-```
-{
-  "id": "<ID>",
-  "public_id": "<PUBLIC_ID>",
-  "type": "PAYMENT",
-  "state": "PENDING",
-  "created_date": "2020-10-15T07:46:40.648108Z",
-  "updated_date": "2020-10-15T07:46:40.648108Z",
-  "order_amount": {
-    "value": 100,
-    "currency": "GBP"
-  }
-}
-```
-You should save the `public_id` which will be used to identify the order when the RevolutPay button is built.
-
-Note: you must create a new order for each purchase
-
-### 5. Button instantiation
 #### a) Via adding button from kotlin/java code
-In case you want to create a button from code, you can use the `RevolutPay.provideButton()` method, which has the following params:
+
+In case you want to create a button from code, you can use
+the `RevolutPayments.revolutPay.provideButton()` method, which has the following params:
 
 `context` - an instance of context used to create a view
 
-`publicId` - an id of a Revolut order
-
 `params` - a set of parameters that allow to setup the appearance of the button
 
-`errorHandler` an optional handler for errors such as not being able to launch activity when button is clicked
-
 ```
-RevolutPay.provideButton(
-        context: Context,
-        publicId: String,
-        params: ButtonParams,
-        errorHandler: ErrorHandler?
+RevolutPayments.revolutPay.provideButton(
+    context: Context,
+    params: ButtonParams
 ): RevolutPayButton
 ```
+
 #### b) Via adding button to an .xml layout file
-In case of integrating the `RevolutPayButton` directly into layout you will need to provide an id of an order, which can be set via `RevolutPayButton.setPublicId(publicId)` before allowing to use the button. The `publicId` is required for opening Revolut app to allow customer to confirm the payment.
 
-**NOTE**
+You can also integrate the button into your layout by adding it to an .xml file in the `layout`
+directory.
 
-After creating an instance of `RevolutPayButton` you must provide an id by either invoking `View.setId()` on an instance of the button, or by setting it in .xml layout file with `android:id="@+id/revolutButton"`. This id is required for saving and restoring the internal state of the button.
+```
+<com.revolut.revolutpay.ui.button.RevolutPayButton
+    android:id="@+id/revolut_pay_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:revolutPay_Radius="Medium"
+    app:revolutPay_Size="Large"
+    app:revolutPay_BoxText="GetCashbackValue"
+    app:revolutPay_BoxTextCurrency="GBP"
+    app:revolutPay_BoxTextValue="Medium"
+    app:revolutPay_VariantDarkTheme="Dark"
+    app:revolutPay_VariantLightTheme="Light" />
+```
 
 ##### Button customization
 
-In both cases, you can specify a list of parameters which would affect the appearance of the button. The list of parameters includes the following attributes:
-
-`revolutPay_ActionType` - defines the text of the button
+In both cases, you can specify a list of parameters which would affect the appearance of the button.
+The list of parameters includes the following attributes:
 
 `revolutPay_Radius` - defines the corner radius of the button
 
 `revolutPay_Size` - defines the size of the button
 
-`revolutPay_VariantLightTheme` - defines the style of the button used when device is in the light mode
+`revolutPay_BoxText` - defines the appearance of the view which is shown under the Revolut Pay
+button for informing the user about the provided cashback
+
+`revolutPay_BoxTextCurrency` - defines the cashback currency of the view which is shown under the
+Revolut Pay button for informing the user about the provided cashback
+
+`revolutPay_BoxTextValue` - defines the value for cashback of the view which is shown under the
+Revolut Pay button for informing the user about the provided cashback
+
+`revolutPay_VariantLightTheme` - defines the style of the button used when device is in the light
+mode
 
 `revolutPay_VariantDarkTheme` - defines the style of the button used when device is in the dark mode
-##### Available style settings:
-```
-enum class ActionType {
-    NONE,
-    PAY_WITH_REVOLUT,
-    BUY_WITH_REVOLUT,
-    DONATE_WITH_REVOLUT,
-    SUBSCRIBE_WITH_REVOLUT
-}
 
+###### Available style settings:
+
+```
 enum class Size {
+    EXTRA_SMALL,
     SMALL,
+    MEDIUM,
     LARGE
 }
 
 enum class Radius {
     NONE,
     SMALL,
+    MEDIUM,
     LARGE
+}
+
+enum class BoxText {
+    NONE,
+    GET_CASHBACK_VALUE
+}
+
+enum class BoxTextCurrency {
+   GBP,
+   EUR,
+   USD
+}
+
+enum class BoxTextValue {
+   HIGH,
+   MEDIUM
 }
 
 enum class Variant {
     DARK,
     LIGHT,
-    LIGHT_OUTLINED
+    LIGHT_OUTLINED,
+    DARK_OUTLINED
 }
 
 data class VariantModes(
@@ -192,53 +235,131 @@ data class VariantModes(
 )
 ```
 
-#### Check current state of the order
-For checking the current state of an order you should use `RevolutPay.fetchOrderState(publicId)`. This method returns an `OrderState` enum that represents the current state of the order. Here are the possible states:
+#### Handle Revolut Pay button clicks
 
-`CREATED` - the order has been created, but it's not yet confirmed
+In order to process the user's click of Revolut Pay button, the following should be done:
 
-`PENDING` - the order has been confirmed by the customer in Revolut app, and now is being processed
+1. Invoke `RevolutPayButton.createController()` for the instance of the Revolut Pay button. This
+   method will create an instance of `Controller`, to provide parameters for the payment
+   configuration.
+2. After an instance of `Controller` is created you have to set up a callback by
+   calling `setHandler()` method. This callback will be invoked once the user clicks the button, and
+   an instance of the `ConfirmationFlow` will be provided for the further processing. Once the
+   callback is invoked, you have to create an order (please refer
+   to [this document](https://developer.revolut.com/docs/api-reference/merchant/#operation/createOrder)
+   to find more details about order creation), and once it's created please follow these steps:
+    * Invoke the `ConfirmationFlow.setOrderToken()` method for setting the order token (which you
+      should receive once you create an order).
+    * Set up the lifecycle of the component that hosts the button (most likely it's going to be
+      either `Fragment` or `Activity`) via `ConfirmationFlow.attachLifecycle()`. The Revolut Pay
+      button internally polls the latest state of the order from BE in order to notify the user
+      about success on a timely manner, and `Lifecycle` is used to pause/restart polling when the
+      app goes to background, or user navigates from the screen that contains Revolut Pay button.
+    * After the order token and lifecycle object are set, continue the flow by invoking
+      the `ConfirmationFlow.continueConfirmationFlow()`.
+3. Apart from click handler you should also set up the callback to be invoked when the payment
+   succeeds or fails. For this purpose the `Controller.setOrderResultCallback()` should be used.
 
-`COMPLETED` - the order has been successfully confirmed and processed
+The following snippet showcases how to set up the Revolut Pay button properly:
 
-`FAILED` - the order was failed
+```
+revolutPayButton.createController().apply {
+    setHandler { flow ->
+        //create an order via sending a BE request
+        flow.setOrderToken(orderToken = orderToken)
+        flow.attachLifecycle(this@FlowDemoFragment.lifecycle)
+        flow.continueConfirmationFlow()
+    }
+    setOrderResultCallback(object : OrderResultCallback {
+        override fun onOrderCompleted() {
+            //Inform the user about successful payment
+        }
+            override fun onOrderFailed(throwable: Throwable) {
+            //Inform the user about a failure
+        }
+    })
+}
+```
 
 **NOTE**
 
-The `RevolutPay.fetchOrderState(publicId)` makes a synchronous network request in order to fetch the order state, therefore it should only be invoked from a background thread.
+Please note that the callbacks that are set via `setHandler()` and `setOrderResultCallback()` are
+going to be invoked on the main thread, so if you need to do make a network request or some other
+time consuming operation, you will have to switch to background thread
 
-The `RevolutPayButton` also provides methods to show/hide progress inside the button (`showLoadingProgress()`/`hideLoadingProgress()`). Normally progress should be shown only when the last fetched state of order is `PENDING` and hidden for any other state. In simple words, this indicator is meant for showing that the order is being processed at the moment, not for showing the fact that order state is being polled in background.
+#### Payment confirmation
 
-# Methods available
+After the order is created and the `ConfirmationFlow.continueConfirmationFlow()` has been invoked
+there might be 2 different flows that will allow the user to confirm the payment. Which flow is
+going to be utilised for the particular user is based on the presence/absence of the Revolut retail
+app on their device.
+
+In case if the Revolut retail app is installed, this app is going to be opened to allow the user to
+confirm the payment within the app. This will simplify the confirmation procedure for the user since
+the user most likely already has a Revolut account and signed in within the app. In such case, the
+user will have to enter their passcode and simply click the `Confirm` button. Once the payment is
+confirmed the client will see the success message and shortly after will be redirected back to your
+app.
+
+However it's possible that the user doesn't have the Revolut app installed. In such case they won't
+leave the app where the SDK is integrated, instead the SDK will open an activity that includes a
+webview, which is going to be used for letting the user to make a payment. Once the payment is
+confirmed, the activity will be automatically closed and the user will return back to the screen
+where the Revolut Pay button is integrated.
+
+#### Methods available
+
 Mandatory SDK initialization:
+
 ```
-RevolutPay.init(environment: RevolutPayEnvironment, returnUrl: String?)
+RevolutPayments.revolutPay.init(
+    environment: RevolutPayEnvironment,
+    returnUri: String,
+    merchantPublicKey: String
+)
 ```
+
 Button instantiation:
+
 ```
-RevolutPay.provideButton(
-        context: Context,
-        publicId: String,
-        params: ButtonParams
-    ): RevolutPayButton
+RevolutPayments.revolutPay.provideButton(
+    context: Context,
+    params: ButtonParams
+): RevolutPayButton
 ```
-Make a synchronous network request to fetch the current state of an order:
-```
-RevolutPay.fetchOrderState(publicId)
-```
+
 Check if Revolut app is installed:
+
 ```
-RevolutPay.isRevolutAppInstalled(packageManager: PackageManager): Boolean
+RevolutPayments.revolutPay.isRevolutAppInstalled(context: Context): Boolean
 ```
-Show loading indicator inside the button:
+
+Set up the callback to be invoked once the user clicks the Revolut Pay button:
+
 ```
-RevolutPayButton.showLoadingProgress()
+Controller.setHandler(onClick: (ConfirmationFlow) -> Unit)
 ```
-Hide loading indicator inside the button:
+
+Set up the callback to be invoked once the payment is successfully confirmed or failed:
+
 ```
-RevolutPayButton.hideLoadingProgress()
+Controller.setOrderResultCallback(orderResultCallback: OrderResultCallback)
 ```
-Set the callback to be invoked in case of an error when SDK tries to launch an activity after button is clicked:
+
+Set up order token once the order has been created:
+
 ```
-RevolutPayButton.setErrorHandler(errorHandler: ErrorHandler?)
+ConfirmationFlow.setOrderToken(orderToken: String)
+```
+
+Attach an instance of `Lifecycle` to the button:
+
+```
+ConfirmationFlow.attachLifecycle(lifecycle: Lifecycle)
+```
+
+Proceed with the payment once order token and lifecycle has been set:
+
+```
+ConfirmationFlow.continueConfirmationFlow()
 ```
