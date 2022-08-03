@@ -24,7 +24,7 @@ Set up the Revolut Pay SDK to accept Revolut Pay payments directly in your app. 
 
 4. [Button instantiation](#markdown-header-button-instantiation)
 
-### Install the SDK
+## Install the SDK
 
 1. Since the SDK is hosted on mavenCentral, in order to fetch the dependencies please add the
    following lines to your project level build.gradle:
@@ -50,7 +50,7 @@ implementation 'com.revolut:revolutpay:2.0.0'
 
 The minimum Android SDK version that is supported by the SDK is Android 5.0 (API 21).
 
-### Configure the SDK
+## Configure the SDK
 
 Initialise the SDK by
 invoking `RevolutPayments.revolutPay.init(environment: RevolutPayEnvironment, returnUrl: String, merchantPublicKey: String)`
@@ -115,7 +115,7 @@ the Revolut app on your client's device:
 </queries>
 ```
 
-### Get your merchant API key
+## Get your merchant API key
 
 Go to your Revolut app to generate
 the [Merchant API key](https://business.revolut.com/settings/merchant-api). You need it as part of
@@ -129,7 +129,7 @@ the [sandbox API key](https://sandbox-business.revolut.com/settings/merchant-api
 information,
 see [Test in the Sandbox environment](https://developer.revolut.com/docs/accept-payments/tutorials/test-in-the-sandbox-environment/configuration)
 
-### 4. Button instantiation
+## Button instantiation
 
 #### a) Via adding button from kotlin/java code
 
