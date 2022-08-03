@@ -17,7 +17,7 @@ in your [Revolut Business](https://business.revolut.com/merchant) account.
 
 ## Get started with the Revolut Pay SDK for Android
 
-Set up the Revolut Pay SDK to accept Revolut Pay payments directly in your app. It requires 5 steps:
+Set up the Revolut Pay SDK to accept Revolut Pay payments directly in your app. It requires 4 steps:
 
 1. [Install the SDK](#markdown-header-install-the-sdk)
 
@@ -143,6 +143,10 @@ the `RevolutPayments.revolutPay.provideButton()` method, which has the following
 
 `params` - a set of parameters that allow to setup the appearance of the button
 
+```kotlin
+import com.revolut.revolutpay.api.revolutPay
+import com.revolut.revolutpayments.RevolutPayments
+```
 ```kotlin
 RevolutPayments.revolutPay.provideButton(
     context: Context,
