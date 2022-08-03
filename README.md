@@ -50,7 +50,7 @@ implementation 'com.revolut:revolutpay:2.0.0'
 
 The minimum Android SDK version that is supported by the SDK is Android 5.0 (API 21).
 
-### 2. Configure the SDK
+### Configure the SDK
 
 Initialise the SDK by
 invoking `RevolutPayments.revolutPay.init(environment: RevolutPayEnvironment, returnUrl: String, merchantPublicKey: String)`
@@ -69,7 +69,7 @@ invoking `RevolutPayments.revolutPay.init(environment: RevolutPayEnvironment, re
    that can handle `returnUrl` (please note that the launchMode should be set to `singleTop`,
    otherwise it will not be possible to return back to your app):
 
-```
+```xml
 <activity
     android:name=".MainActivity"
     android:launchMode="singleTop">
@@ -100,7 +100,7 @@ Since the SDK relies on the internet connection in order to process your order, 
 sure that the internet permission is added for your app. If it isn't, please add the following line
 to the manifest:
 
-```
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
@@ -109,13 +109,13 @@ check if the Revolut retail app is installed before showing the Revolut Pay butt
 to add the following code to your manifest in order to allow the SDK to check for the presence of
 the Revolut app on your client's device:
 
-```
+```xml
 <queries>
     <package android:name="com.revolut.revolut" />
 </queries>
 ```
 
-### 3. Get your merchant API key
+### Get your merchant API key
 
 Go to your Revolut app to generate
 the [Merchant API key](https://business.revolut.com/settings/merchant-api). You need it as part of
@@ -140,7 +140,7 @@ the `RevolutPayments.revolutPay.provideButton()` method, which has the following
 
 `params` - a set of parameters that allow to setup the appearance of the button
 
-```
+```kotlin
 RevolutPayments.revolutPay.provideButton(
     context: Context,
     params: ButtonParams
