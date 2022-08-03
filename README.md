@@ -1,8 +1,5 @@
 # Revolut Pay: Android SDK
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.revolut/revolutpay/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.revolut/revolutpay)
-
-
 The Revolut Pay SDK for Android lets you
 accept [Revolut Pay](https://www.revolut.com/help/making-payments/what-is-revolut-pay-payment-method)
 payments from Revolut users directly from your app. It is designed for easy implementation and
