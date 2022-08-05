@@ -34,6 +34,8 @@ class ConfigureSdkFragment : Fragment() {
                 updateRevolutPayConfig()
                 revolutPayConfigureSdkUpdateButton.isEnabled = false
             }
+            revolutPayEnvironmentProductionButton.setOnClickListener { onInputAction() }
+            revolutPayEnvironmentSandboxButton.setOnClickListener { onInputAction() }
             revolutPayOrderTokenEditText.addTextChangedListener { onInputAction() }
             revolutPayMerchantPublicKeyEditText.addTextChangedListener { onInputAction() }
         }
@@ -51,11 +53,7 @@ class ConfigureSdkFragment : Fragment() {
     private fun Binding.updateRevolutPayConfig() {
         val merchantPublicKey = revolutPayMerchantPublicKeyEditText.text.toString()
         Defaults.merchantPublicKey = merchantPublicKey
-        Defaults.environment = when (revolutPayEnvironmentGroup.checkedButtonId) {
-            R.id.revolutPayEnvironmentProductionButton -> RevolutPayEnvironment.MAIN
-            R.id.revolutPayEnvironmentSandboxButton -> RevolutPayEnvironment.SANDBOX
-            else -> throw IllegalArgumentException("Can't find the environment")
-        }
+        Defaults.environment = getEnvironment()
         Defaults.orderToken = revolutPayOrderTokenEditText.text.toString()
         RevolutPayments.revolutPay.init(
             environment = Defaults.environment,
@@ -63,6 +61,13 @@ class ConfigureSdkFragment : Fragment() {
             merchantPublicKey = merchantPublicKey
         )
     }
+
+    private fun Binding.getEnvironment() =
+        when (revolutPayEnvironmentGroup.checkedButtonId) {
+            R.id.revolutPayEnvironmentProductionButton -> RevolutPayEnvironment.MAIN
+            R.id.revolutPayEnvironmentSandboxButton -> RevolutPayEnvironment.SANDBOX
+            else -> throw IllegalArgumentException("Can't find the environment")
+        }
 
     private fun Binding.onInputAction() {
         val merchantPublicKey = revolutPayMerchantPublicKeyEditText.text.toString()
@@ -75,6 +80,9 @@ class ConfigureSdkFragment : Fragment() {
                 revolutPayConfigureSdkUpdateButton.isEnabled = true
             }
             orderToken.isNotBlank() && Defaults.orderToken != orderToken -> {
+                revolutPayConfigureSdkUpdateButton.isEnabled = true
+            }
+            getEnvironment() != Defaults.environment -> {
                 revolutPayConfigureSdkUpdateButton.isEnabled = true
             }
             else -> revolutPayConfigureSdkUpdateButton.isEnabled = false
