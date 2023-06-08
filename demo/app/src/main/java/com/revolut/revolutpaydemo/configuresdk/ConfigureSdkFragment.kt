@@ -58,7 +58,9 @@ class ConfigureSdkFragment : Fragment() {
         RevolutPayments.revolutPay.init(
             environment = Defaults.environment,
             returnUri = Defaults.returnUri,
-            merchantPublicKey = merchantPublicKey
+            merchantPublicKey = merchantPublicKey,
+            requestShipping = false,
+            customer = null
         )
     }
 

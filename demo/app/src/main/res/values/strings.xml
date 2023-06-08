@@ -4,6 +4,7 @@
     <string name="configure_sdk">Configure SDK</string>
     <string name="checkout_example">Checkout Example</string>
     <string name="button_styles">Button styles</string>
+    <string name="promo_banner">Promotional Banner</string>
     <string name="revolut_app_installation_check">Revolut application installation check</string>
     <string name="revolut_application_installed">Revolut application is installed</string>
     <string name="revolut_application_not_installed">Revolut application is not installed</string>

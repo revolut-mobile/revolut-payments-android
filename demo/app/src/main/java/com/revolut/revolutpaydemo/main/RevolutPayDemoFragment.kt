@@ -49,6 +49,9 @@ class RevolutPayDemoFragment : Fragment() {
                 externalRevolutPayRevolutAppInstalledCheck.setOnClickListener {
                     checkRevolutApplicationInstalled()
                 }
+                externalRevolutPayPromoBannerDemoButton.setOnClickListener {
+                    navigate(R.id.action_RevolutPayDemoFragment_to_PromoBannerDemoFragment)
+                }
             }
         }
     }

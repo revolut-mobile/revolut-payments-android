@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_RevolutPayDemoFragment_to_ButtonStylesFragment"
             app:destination="@id/ButtonStylesFragment" />
+        <action
+            android:id="@+id/action_RevolutPayDemoFragment_to_PromoBannerDemoFragment"
+            app:destination="@id/PromoBannerDemoFragment" />
     </fragment>
 
     <fragment
@@ -39,5 +42,11 @@
         android:name="com.revolut.revolutpaydemo.buttons.ButtonStylesFragment"
         android:label="@string/button_styles"
         tools:layout="@layout/fragment_button_styles" />
+
+    <fragment
+        android:id="@+id/PromoBannerDemoFragment"
+        android:name="com.revolut.revolutpaydemo.promo_banner.PromoBannerDemoFragment"
+        android:label="@string/promo_banner"
+        tools:layout="@layout/fragment_revolut_promo_banner" />
 
 </navigation>
