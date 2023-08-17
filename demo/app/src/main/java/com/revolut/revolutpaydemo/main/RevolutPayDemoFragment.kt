@@ -19,9 +19,8 @@ class RevolutPayDemoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        with(findNavController()) {
-            navigate(R.id.action_RevolutPayDemoFragment_to_ConfigureSdkFragment)
-        }
+        if (savedInstanceState == null)
+            findNavController().navigate(R.id.action_RevolutPayDemoFragment_to_ConfigureSdkFragment)
     }
 
     override fun onCreateView(
