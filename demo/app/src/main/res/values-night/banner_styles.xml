@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme_RevolutPayBanner">
+        <item name="revolutPay_ColorAccent">#FF8686</item>
+        <item name="revolutPay_ColorBackground">#393939</item>
+        <item name="revolutPay_BannerCornerRadius">12dp</item>
+        <item name="revolutPay_ComponentCornerRadius">16dp</item>
+        <item name="revolutPay_StrokeWidth">2dp</item>
+        <item name="revolutPay_StrokeColor">#1C1C1C</item>
+    </style>
+</resources>
