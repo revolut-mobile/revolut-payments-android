@@ -4,12 +4,13 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 34
+    namespace = "com.revolut.revolutpaydemo"
 
     defaultConfig {
         applicationId "com.revolut.revolutpaydemo"
-        minSdk 21
-        targetSdk 31
+        minSdk 24
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -35,13 +36,12 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.8.4'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.8.4'
 
     implementation 'com.revolut:revolutpayments:1.0.0'
-    implementation 'com.revolut:revolutpay:2.3'
+    implementation 'com.revolut:revolutpay:2.4'
 }

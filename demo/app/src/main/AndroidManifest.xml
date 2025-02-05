@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.revolut.revolutpaydemo">
 
-    <queries>
-        <package android:name="com.revolut.revolut" />
-    </queries>
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <queries>
