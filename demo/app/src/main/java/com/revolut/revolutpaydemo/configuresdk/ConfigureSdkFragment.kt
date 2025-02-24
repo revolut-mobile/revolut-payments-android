@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import com.revolut.revolutpay.api.RevolutPayEnvironment
-import com.revolut.revolutpay.api.revolutPay
+import com.revolut.payments.RevolutPayments
+import com.revolut.payments.model.RevolutPaymentsEnvironment
 import com.revolut.revolutpaydemo.R
 import com.revolut.revolutpaydemo.utils.Defaults
-import com.revolut.revolutpayments.RevolutPayments
 import com.revolut.revolutpaydemo.databinding.FragmentConfigureSdkBinding as Binding
 
 class ConfigureSdkFragment : Fragment() {
@@ -30,6 +29,7 @@ class ConfigureSdkFragment : Fragment() {
 
         binding?.apply {
             prefillWithStoredConfig()
+            updateRevolutPayConfig()
             revolutPayConfigureSdkUpdateButton.setOnClickListener {
                 updateRevolutPayConfig()
                 revolutPayConfigureSdkUpdateButton.isEnabled = false
@@ -43,8 +43,8 @@ class ConfigureSdkFragment : Fragment() {
 
     private fun Binding.prefillWithStoredConfig() {
         when (Defaults.environment) {
-            RevolutPayEnvironment.MAIN -> revolutPayEnvironmentGroup.check(R.id.revolutPayEnvironmentProductionButton)
-            RevolutPayEnvironment.SANDBOX -> revolutPayEnvironmentGroup.check(R.id.revolutPayEnvironmentSandboxButton)
+            RevolutPaymentsEnvironment.PRODUCTION -> revolutPayEnvironmentGroup.check(R.id.revolutPayEnvironmentProductionButton)
+            RevolutPaymentsEnvironment.SANDBOX -> revolutPayEnvironmentGroup.check(R.id.revolutPayEnvironmentSandboxButton)
         }
         Defaults.merchantPublicKey?.let(revolutPayMerchantPublicKeyEditText::setText)
         Defaults.orderToken?.let(revolutPayOrderTokenEditText::setText)
@@ -55,19 +55,16 @@ class ConfigureSdkFragment : Fragment() {
         Defaults.merchantPublicKey = merchantPublicKey
         Defaults.environment = getEnvironment()
         Defaults.orderToken = revolutPayOrderTokenEditText.text.toString()
-        RevolutPayments.revolutPay.init(
+        RevolutPayments.init(
             environment = Defaults.environment,
-            returnUri = Defaults.returnUri,
             merchantPublicKey = merchantPublicKey,
-            requestShipping = false,
-            customer = null
         )
     }
 
     private fun Binding.getEnvironment() =
         when (revolutPayEnvironmentGroup.checkedButtonId) {
-            R.id.revolutPayEnvironmentProductionButton -> RevolutPayEnvironment.MAIN
-            R.id.revolutPayEnvironmentSandboxButton -> RevolutPayEnvironment.SANDBOX
+            R.id.revolutPayEnvironmentProductionButton -> RevolutPaymentsEnvironment.PRODUCTION
+            R.id.revolutPayEnvironmentSandboxButton -> RevolutPaymentsEnvironment.SANDBOX
             else -> throw IllegalArgumentException("Can't find the environment")
         }
 

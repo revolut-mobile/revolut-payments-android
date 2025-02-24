@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.revolut.revolutpay.api.revolutPay
+import com.revolut.payments.revolutpay.revolutPay
 import com.revolut.revolutpaydemo.R
-import com.revolut.revolutpayments.RevolutPayments
+import com.revolut.payments.RevolutPayments
 import com.revolut.revolutpaydemo.databinding.FragmentRevolutPayDemoBinding as Binding
 
 class RevolutPayDemoFragment : Fragment() {

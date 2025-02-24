@@ -4,12 +4,13 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    namespace "com.revolut.revolutpaydemo"
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.revolut.revolutpaydemo"
-        minSdk 21
-        targetSdk 31
+        minSdk 24
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
@@ -17,12 +18,17 @@ android {
     }
 
     buildTypes {
+        debug {
+            manifestPlaceholders['revolut_sso_auth_client_id'] = "<YourSSOClientID>"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders['revolut_sso_auth_client_id'] = "<YourSSOClientID>"
         }
     }
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -35,13 +41,15 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
+    coreLibraryDesugaring  "com.android.tools:desugar_jdk_libs:2.1.4"
 
-    implementation 'com.revolut:revolutpayments:1.0.0'
-    implementation 'com.revolut:revolutpay:2.3'
+    implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.8.7'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.8.7'
+    implementation 'com.google.errorprone:error_prone_annotations:2.28.0'
+
+    implementation 'com.revolut.payments:revolutpay:3.0'
 }

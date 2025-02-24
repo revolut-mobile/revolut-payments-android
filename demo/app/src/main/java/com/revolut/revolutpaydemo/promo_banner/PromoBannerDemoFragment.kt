@@ -8,13 +8,13 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
-import com.revolut.revolutpay.api.Currency
-import com.revolut.revolutpay.api.params.Customer
-import com.revolut.revolutpay.api.params.PromoBannerParams
-import com.revolut.revolutpay.api.revolutPay
-import com.revolut.revolutpay.domain.model.CountryCode
+import com.revolut.payments.revolutpay.params.Customer
 import com.revolut.revolutpaydemo.R
-import com.revolut.revolutpayments.RevolutPayments
+import com.revolut.payments.RevolutPayments
+import com.revolut.payments.currency.RevolutCurrency
+import com.revolut.payments.revolutpay.params.CountryCode
+import com.revolut.payments.revolutpay.params.PromoBannerParams
+import com.revolut.payments.revolutpay.revolutPay
 import com.revolut.revolutpaydemo.databinding.FragmentRevolutPromoBannerBinding as Binding
 
 class PromoBannerDemoFragment : Fragment() {
@@ -41,7 +41,7 @@ class PromoBannerDemoFragment : Fragment() {
                 context = requireContext(),
                 params = PromoBannerParams(
                     transactionId = "c93803f9-7299-4d8a-ba59-e0e590a3b0eb",
-                    currency = Currency.EUR,
+                    currency = RevolutCurrency.EUR,
                     paymentAmount = null,
                     customer = Customer(
                         name = null,

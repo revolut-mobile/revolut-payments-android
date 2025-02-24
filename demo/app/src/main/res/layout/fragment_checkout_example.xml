@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="fill_vertical"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="32dp">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/checkoutExampleTitle"
@@ -29,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/checkoutExampleTitle" />
 
-    <com.revolut.revolutpay.ui.button.RevolutPayButton
+    <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
         android:id="@+id/revolutPayButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -19,6 +19,7 @@
     <string name="checkout">Checkout</string>
     <string name="checkout_completed">Checkout completed successfully</string>
     <string name="checkout_failed">Checkout failed</string>
+    <string name="checkout_canceled">Checkout canceled</string>
     <string name="variants">Variants</string>
     <string name="attachments">Attachments</string>
     <string name="radius">Radius</string>

@@ -7,7 +7,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/buttonStylesExampleTitle"
@@ -34,7 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/buttonStylesExampleTitle" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -44,7 +47,7 @@
             app:revolutPay_VariantDarkTheme="Dark"
             app:revolutPay_VariantLightTheme="Light" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -54,7 +57,7 @@
             app:revolutPay_VariantDarkTheme="Light"
             app:revolutPay_VariantLightTheme="Dark" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -64,7 +67,7 @@
             app:revolutPay_VariantDarkTheme="DarkOutlined"
             app:revolutPay_VariantLightTheme="LightOutlined" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -87,7 +90,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/buttonStylesExampleTitle" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -97,7 +100,7 @@
             app:revolutPay_VariantDarkTheme="Dark"
             app:revolutPay_VariantLightTheme="Light" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -117,7 +120,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -127,7 +130,7 @@
             app:revolutPay_VariantDarkTheme="Dark"
             app:revolutPay_VariantLightTheme="Light" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -137,7 +140,7 @@
             app:revolutPay_VariantDarkTheme="Dark"
             app:revolutPay_VariantLightTheme="Light" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -147,7 +150,7 @@
             app:revolutPay_VariantDarkTheme="Dark"
             app:revolutPay_VariantLightTheme="Light" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -167,7 +170,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -177,7 +180,7 @@
             app:revolutPay_VariantDarkTheme="Dark"
             app:revolutPay_VariantLightTheme="Light" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -187,7 +190,7 @@
             app:revolutPay_VariantDarkTheme="Dark"
             app:revolutPay_VariantLightTheme="Light" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -197,7 +200,7 @@
             app:revolutPay_VariantDarkTheme="Dark"
             app:revolutPay_VariantLightTheme="Light" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -217,7 +220,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -229,7 +232,7 @@
             app:revolutPay_VariantDarkTheme="Dark"
             app:revolutPay_VariantLightTheme="Light" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -241,7 +244,7 @@
             app:revolutPay_VariantDarkTheme="Dark"
             app:revolutPay_VariantLightTheme="Light" />
 
-        <com.revolut.revolutpay.ui.button.RevolutPayButton
+        <com.revolut.payments.revolutpay.ui.button.RevolutPayButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
