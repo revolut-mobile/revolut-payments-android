@@ -18,6 +18,9 @@
             android:id="@+id/action_RevolutPayDemoFragment_to_CheckoutExampleFragment"
             app:destination="@id/CheckoutExampleFragment" />
         <action
+            android:id="@+id/action_RevolutPayDemoFragment_to_CustomCheckoutFragment"
+            app:destination="@id/DemoCustomCheckoutFragment" />
+        <action
             android:id="@+id/action_RevolutPayDemoFragment_to_ButtonStylesFragment"
             app:destination="@id/ButtonStylesFragment" />
         <action
@@ -36,6 +39,12 @@
         android:name="com.revolut.revolutpaydemo.checkout.CheckoutExampleFragment"
         android:label="@string/checkout_example"
         tools:layout="@layout/fragment_checkout_example" />
+
+    <fragment
+        android:id="@+id/DemoCustomCheckoutFragment"
+        android:name="com.revolut.revolutpaydemo.checkout.DemoCustomCheckoutFragment"
+        android:label="@string/checkout_custom"
+        tools:layout="@layout/fragment_checkout_custom" />
 
     <fragment
         android:id="@+id/ButtonStylesFragment"
