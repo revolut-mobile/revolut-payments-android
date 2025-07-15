@@ -38,7 +38,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:revolutPay_BoxText="GetCashbackValue"
         app:revolutPay_BoxTextCurrency="GBP"
-        app:revolutPay_BoxTextValue="Medium"
         app:revolutPay_Radius="Medium"
         app:revolutPay_Size="Large"
         app:revolutPay_VariantDarkTheme="Dark"

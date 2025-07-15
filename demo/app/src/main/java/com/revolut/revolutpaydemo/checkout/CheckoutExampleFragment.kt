@@ -54,6 +54,14 @@ class CheckoutExampleFragment : Fragment() {
                                 Toast.LENGTH_LONG
                             ).show()
                         }
+
+                        override fun onUserAbandonedPayment() {
+                            Toast.makeText(
+                                this@CheckoutExampleFragment.context,
+                                R.string.checkout_abandoned,
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
                     })
                 }
         }
