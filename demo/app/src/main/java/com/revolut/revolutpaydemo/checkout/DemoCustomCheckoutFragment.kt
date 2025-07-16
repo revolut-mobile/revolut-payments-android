@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.revolut.revolutpay.api.OrderResultCallback
 import com.revolut.revolutpay.api.revolutPay
@@ -28,12 +29,14 @@ class DemoCustomCheckoutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val orderToken = Defaults.orderToken?.takeIf { it.isNotBlank() } ?: return
         binding?.revolutPayButton?.setOnClickListener {
+            showLoading(true)
             RevolutPayments.revolutPay.pay(
                 requireContext(),
                 orderToken = orderToken,
                 lifecycle = lifecycle,
                 callback = object : OrderResultCallback {
                     override fun onOrderCompleted() {
+                        showLoading(false)
                         Toast.makeText(
                             context,
                             R.string.checkout_completed,
@@ -42,6 +45,7 @@ class DemoCustomCheckoutFragment : Fragment() {
                     }
 
                     override fun onOrderFailed(throwable: Throwable) {
+                        showLoading(false)
                         Toast.makeText(
                             context,
                             R.string.checkout_failed,
@@ -50,6 +54,7 @@ class DemoCustomCheckoutFragment : Fragment() {
                     }
 
                     override fun onUserAbandonedPayment() {
+                        showLoading(false)
                         Toast.makeText(
                             context,
                             R.string.checkout_abandoned,
@@ -63,5 +68,9 @@ class DemoCustomCheckoutFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    private fun showLoading(loading: Boolean) {
+        binding?.revolutPayProgressBar?.isVisible = loading
     }
 }
