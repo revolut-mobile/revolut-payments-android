@@ -42,6 +42,9 @@ class RevolutPayDemoFragment : Fragment() {
                 revolutPayCheckoutExample.setOnClickListener {
                     navigate(R.id.action_RevolutPayDemoFragment_to_CheckoutExampleFragment)
                 }
+                revolutPayCustomCheckoutExample.setOnClickListener {
+                    navigate(R.id.action_RevolutPayDemoFragment_to_CustomCheckoutFragment)
+                }
                 revolutPayButtonStyles.setOnClickListener {
                     navigate(R.id.action_RevolutPayDemoFragment_to_ButtonStylesFragment)
                 }

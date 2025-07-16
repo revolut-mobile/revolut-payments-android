@@ -3,6 +3,7 @@
     <string name="revolut_pay_demo">Revolut Pay Demo</string>
     <string name="configure_sdk">Configure SDK</string>
     <string name="checkout_example">Checkout Example</string>
+    <string name="checkout_custom">Checkout Custom</string>
     <string name="button_styles">Button styles</string>
     <string name="promo_banner">Promotional Banner</string>
     <string name="revolut_app_installation_check">Revolut application installation check</string>
@@ -19,6 +20,7 @@
     <string name="checkout">Checkout</string>
     <string name="checkout_completed">Checkout completed successfully</string>
     <string name="checkout_failed">Checkout failed</string>
+    <string name="checkout_abandoned">Checkout abandoned</string>
     <string name="variants">Variants</string>
     <string name="attachments">Attachments</string>
     <string name="radius">Radius</string>
