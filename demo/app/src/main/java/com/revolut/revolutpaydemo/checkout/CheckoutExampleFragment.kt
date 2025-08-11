@@ -33,6 +33,7 @@ class CheckoutExampleFragment : Fragment() {
                 .apply {
                     setHandler { flow ->
                         flow.setOrderToken(orderToken = orderToken)
+                        flow.setSavePaymentMethodForMerchant(savePaymentMethodForMerchant = binding?.savePaymentMethod?.isChecked == true)
                         flow.attachLifecycle(this@CheckoutExampleFragment.lifecycle)
                         flow.continueConfirmationFlow()
                     }

@@ -39,8 +39,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="backlink.com"
-                    android:scheme="demoapp" />
+                    android:host="revolut-pay"
+                    android:scheme="demo" />
             </intent-filter>
         </activity>
     </application>

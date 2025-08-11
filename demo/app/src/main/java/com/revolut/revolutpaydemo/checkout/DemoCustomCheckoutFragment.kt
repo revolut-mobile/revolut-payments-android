@@ -33,6 +33,7 @@ class DemoCustomCheckoutFragment : Fragment() {
             RevolutPayments.revolutPay.pay(
                 requireContext(),
                 orderToken = orderToken,
+                savePaymentMethodForMerchant = binding?.revolutPaySavePaymentMethodForMerchant?.isChecked == true,
                 lifecycle = lifecycle,
                 callback = object : OrderResultCallback {
                     override fun onOrderCompleted() {

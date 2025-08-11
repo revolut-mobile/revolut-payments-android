@@ -19,15 +19,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/background"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="?attr/colorAccent"
-        app:layout_constraintBottom_toTopOf="@id/revolutPayButton"
+        app:layout_constraintBottom_toTopOf="@id/savePaymentMethod"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/checkoutExampleTitle" />
+
+    <CheckBox
+        android:id="@+id/savePaymentMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/save_payment_method_for_merchant"
+        app:layout_constraintBottom_toTopOf="@id/revolutPayButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/background" />
 
     <com.revolut.revolutpay.ui.button.RevolutPayButton
         android:id="@+id/revolutPayButton"
@@ -36,6 +47,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/savePaymentMethod"
         app:revolutPay_BoxText="GetCashbackValue"
         app:revolutPay_BoxTextCurrency="GBP"
         app:revolutPay_Radius="Medium"
