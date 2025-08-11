@@ -5,7 +5,7 @@ import com.revolut.revolutpay.api.RevolutPayEnvironment
 
 object Defaults {
 
-    val returnUri: Uri = Uri.parse("demoapp://backlink.com")
+    val returnUri: Uri = Uri.parse("demo://revolut-pay")
 
     var environment: RevolutPayEnvironment = RevolutPayEnvironment.MAIN
     var merchantPublicKey: String? = null

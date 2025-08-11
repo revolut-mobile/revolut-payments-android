@@ -30,9 +30,9 @@ class RevolutPayDemoActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun onNewIntent(intent: Intent?) {
+    override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        intent?.data?.let {
+        intent.data?.let {
             handleDeeplink(it)
         }
     }
