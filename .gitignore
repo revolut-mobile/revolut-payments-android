@@ -1,6 +1,6 @@
 # Android Studio and Gradle
 *.iml
-.gradle
+.gradle/
 /local.properties
 /.idea/
 .DS_Store
