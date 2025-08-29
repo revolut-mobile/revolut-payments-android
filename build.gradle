@@ -17,6 +17,9 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        if (project.findProperty("useMavenLocal") == "true") {
+            mavenLocal()
+        }
     }
 }
 
