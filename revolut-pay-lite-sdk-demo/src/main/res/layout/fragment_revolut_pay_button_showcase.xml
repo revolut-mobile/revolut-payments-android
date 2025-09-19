@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    tools:context=".view.RevolutPayButtonShowcaseFragment">
+
+    <Button
+        android:id="@+id/externalRevolutPay_defaultModeButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Default mode"
+        app:layout_constraintEnd_toStartOf="@+id/externalRevolutPay_lightModeButton"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/externalRevolutPay_lightModeButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Light mode"
+        app:layout_constraintEnd_toStartOf="@+id/externalRevolutPay_darkModeButton"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@id/externalRevolutPay_defaultModeButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/externalRevolutPay_darkModeButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Dark mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/externalRevolutPay_lightModeButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/externalRevolutPay_lightModeButton">
+
+        <LinearLayout
+            android:id="@+id/externalRevolutPay_buttonsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <com.revolut.revolutpay.api.RevolutPayButton
+                android:id="@+id/externalRevolutPay_RevolutPayButton_ExtraSmall_WithoutBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/externalRevolutPay_lightModeButton"
+                app:revolutPay_BoxText="GetCashbackValue"
+                app:revolutPay_Radius="None"
+                app:revolutPay_Size="ExtraSmall" />
+
+            <com.revolut.revolutpay.api.RevolutPayButton
+                android:id="@+id/externalRevolutPay_RevolutPayButton_Small_WithBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/externalRevolutPay_RevolutPayButton_ExtraSmall_WithoutBox"
+                app:revolutPay_BoxText="GetCashbackValue"
+                app:revolutPay_Radius="Small"
+                app:revolutPay_Size="Small" />
+
+            <com.revolut.revolutpay.api.RevolutPayButton
+                android:id="@+id/externalRevolutPay_RevolutPayButton_Medium_WithBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/externalRevolutPay_RevolutPayButton_Small_WithBox"
+                app:revolutPay_BoxText="GetCashbackValue"
+                app:revolutPay_Radius="Medium"
+                app:revolutPay_Size="Medium"
+                app:revolutPay_VariantDarkTheme="Light"
+                app:revolutPay_VariantLightTheme="Dark" />
+
+            <com.revolut.revolutpay.api.RevolutPayButton
+                android:id="@+id/externalRevolutPay_RevolutPayButton_Large_WithoutBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/externalRevolutPay_RevolutPayButton_Medium_WithBox"
+                app:revolutPay_BoxText="None"
+                app:revolutPay_Radius="Large"
+                app:revolutPay_Size="Large"
+                app:revolutPay_VariantDarkTheme="Dark"
+                app:revolutPay_VariantLightTheme="Light" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

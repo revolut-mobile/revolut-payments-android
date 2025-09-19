@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/externalRevolutPay_revolutPayButtonDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/revolut_pay_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/externalRevolutPay_revolutPayFlowDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/revolut_pay_flow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/externalRevolutPay_revolutPromoBannerDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/revolut_pay_promo_banner_demo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/externalRevolutPay_revolutPayFlowConfirmButtonDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/revolut_pay_flow_confirm_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/externalRevolutPay_revolutAppInstalledCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/revolut_pay_revolut_app_installation_check"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</LinearLayout>
