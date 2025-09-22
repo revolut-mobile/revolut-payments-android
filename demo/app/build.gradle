@@ -44,5 +44,5 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.9.1'
 
     implementation 'com.revolut:revolutpayments:1.0.0'
-    implementation 'com.revolut:revolutpay:2.9'
+    implementation 'com.revolut:revolutpay:2.10'
 }
