@@ -45,13 +45,12 @@ class RevolutPayButtonShowcaseFragment : Fragment() {
             externalRevolutPayDarkModeButton.setOnClickListener {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
-            val buttonEUR = createRevolutPayButton(BoxTextCurrency.EUR)
-            val buttonGBP = createRevolutPayButton(BoxTextCurrency.GBP)
-            val buttonUSD = createRevolutPayButton(BoxTextCurrency.USD)
 
-            externalRevolutPayButtonsContainer.addView(buttonEUR)
-            externalRevolutPayButtonsContainer.addView(buttonGBP)
-            externalRevolutPayButtonsContainer.addView(buttonUSD)
+            BoxTextCurrency.entries.forEach { currency ->
+                createRevolutPayButton(currency).also { button ->
+                    externalRevolutPayButtonsContainer.addView(button)
+                }
+            }
         }
     }
 

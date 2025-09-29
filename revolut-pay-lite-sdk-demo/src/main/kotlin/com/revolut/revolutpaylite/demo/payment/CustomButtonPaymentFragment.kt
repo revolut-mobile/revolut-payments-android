@@ -20,17 +20,12 @@ class CustomButtonPaymentFragment : Fragment() {
 
     private lateinit var binding: Binding
 
-    private lateinit var paymentController: RevolutPaymentController
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        paymentController = RevolutPaymentsSDK.revolutPay.createController(this) { paymentResult ->
-            when (paymentResult) {
-                is PaymentResult.Success -> showToast(R.string.order_completed)
-                is PaymentResult.UserAbandonedPayment -> showToast(R.string.order_abandoned)
-                is PaymentResult.Failure -> showToast(R.string.order_failed).also {
-                    Log.e("REVOLUT_PAY_SDK", paymentResult.exception.toString())
-                }
+    private val paymentController: RevolutPaymentController = RevolutPaymentsSDK.revolutPay.createController(this) { paymentResult ->
+        when (paymentResult) {
+            is PaymentResult.Success -> showToast(R.string.order_completed)
+            is PaymentResult.UserAbandonedPayment -> showToast(R.string.order_abandoned)
+            is PaymentResult.Failure -> showToast(R.string.order_failed).also {
+                Log.e("REVOLUT_PAY_SDK", paymentResult.exception.toString())
             }
         }
     }
