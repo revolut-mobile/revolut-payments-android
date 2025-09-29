@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
-import com.revolut.cardpayments.api.RevolutPayCardPaymentLauncher
-import com.revolut.cardpayments.api.RevolutPayCardPaymentParams
-import com.revolut.cardpayments.api.RevolutPayCardPaymentResult
+import com.revolut.cardpayments.api.CardPaymentLauncher
+import com.revolut.cardpayments.api.CardPaymentParams
+import com.revolut.cardpayments.api.CardPaymentResult
 
 class MerchantCardFormDemoActivity : AppCompatActivity() {
 
@@ -19,17 +19,18 @@ class MerchantCardFormDemoActivity : AppCompatActivity() {
     private val orderIdEditText: TextInputEditText by lazy { findViewById(R.id.editTextOrderId) }
 
     // Declare RevolutPayCardPaymentLauncher and add result handling
-    private val cardPaymentLauncher = RevolutPayCardPaymentLauncher(this) { result ->
+    private val cardPaymentLauncher = CardPaymentLauncher(this) { result ->
         when (result) {
-            is RevolutPayCardPaymentResult.Authorised,
-            is RevolutPayCardPaymentResult.Declined,
-            is RevolutPayCardPaymentResult.Error.ApiError,
-            is RevolutPayCardPaymentResult.Error.GenericError,
-            is RevolutPayCardPaymentResult.Error.NetworkError,
-            is RevolutPayCardPaymentResult.Error.OrderNotAvailable,
-            is RevolutPayCardPaymentResult.Error.OrderNotFound,
-            is RevolutPayCardPaymentResult.Error.TimeoutError,
-            is RevolutPayCardPaymentResult.Failed -> {
+            is CardPaymentResult.Authorised,
+            is CardPaymentResult.Declined,
+            is CardPaymentResult.Error.ApiError,
+            is CardPaymentResult.Error.GenericError,
+            is CardPaymentResult.Error.NetworkError,
+            is CardPaymentResult.Error.OrderNotAvailable,
+            is CardPaymentResult.Error.OrderNotFound,
+            is CardPaymentResult.Error.TimeoutError,
+            is CardPaymentResult.UserAbandonedPayment,
+            is CardPaymentResult.Failed -> {
                 Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
             }
         }
@@ -52,7 +53,7 @@ class MerchantCardFormDemoActivity : AppCompatActivity() {
     // Start payment using the launcher
     private fun startPayment(email: String?) {
         cardPaymentLauncher.launch(
-            RevolutPayCardPaymentParams(
+            CardPaymentParams(
                 orderId = orderIdEditText.text.toString(),
                 email = email,
             )
