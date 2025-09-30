@@ -5,7 +5,6 @@
 
 # Node artifact files
 node_modules/
-dist/
 
 # Compiled Java class files
 *.class
@@ -46,5 +45,11 @@ Thumbs.db
 *.avi
 *.flv
 *.mov
-*.wmv
+*.wmvz
 
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties

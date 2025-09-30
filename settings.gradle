@@ -1,0 +1,3 @@
+rootProject.name = "Revolut SDK Demos"
+include ':revolut-pay-sdk-demo'
+include ':merchant-card-form-sdk-demo'
