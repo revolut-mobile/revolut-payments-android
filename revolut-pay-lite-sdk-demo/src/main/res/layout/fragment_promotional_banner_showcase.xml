@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/externalRevolutPay_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        tools:context=".view.PromotionalBannerShowcaseFragment">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/externalRevolutPay_phoneSetSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/promo_banner_demo_customer_phone" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/externalRevolutPay_phoneEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:inputType="phone"
+            android:text="+40500400300" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/externalRevolutPay_emailSetSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/promo_banner_demo_customer_email" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/externalRevolutPay_emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:inputType="textEmailAddress"
+            android:text="test@gmail.com" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/externalRevolutPay_currencySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>
