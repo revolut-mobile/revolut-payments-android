@@ -1,3 +1,4 @@
 rootProject.name = "Revolut SDK Demos"
-include ':revolut-pay-sdk-demo'
+include ':revolut-pay-legacy-sdk-demo'
+include ':revolut-pay-lite-sdk-demo'
 include ':merchant-card-form-sdk-demo'

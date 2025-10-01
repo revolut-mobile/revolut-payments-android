@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical"
+    tools:context=".view.RevolutPayButtonShowcaseFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/order_token_title" />
+
+    <EditText
+        android:id="@+id/externalRevolutPay_OrderToken_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium" />
+
+    <Button
+        android:id="@+id/externalRevolutPay_ClearOrderToken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order_token_clear" />
+
+    <CheckBox
+        android:id="@+id/externalRevolutPay_SavePaymentMethodForMerchant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/revolut_pay_save_payment_method_for_merchant" />
+
+    <com.revolut.revolutpay.api.RevolutPayButton
+        android:id="@+id/externalRevolutPay_RevolutPayButton_ExtraSmall_WithoutBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:revolutPay_BoxText="GetCashbackValue"
+        app:revolutPay_BoxTextCurrency="GBP"
+        app:revolutPay_Radius="Medium"
+        app:revolutPay_Size="Large"
+        app:revolutPay_VariantDarkTheme="Dark"
+        app:revolutPay_VariantLightTheme="Light" />
+</LinearLayout>

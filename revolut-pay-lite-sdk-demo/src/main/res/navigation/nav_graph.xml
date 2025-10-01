@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MainFragment">
+
+    <fragment
+        android:id="@+id/MainFragment"
+        android:name="com.revolut.revolutpaylite.demo.main.MainFragment"
+        android:label="@string/main_fragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_MainFragment_to_ButtonDemoFragment"
+            app:destination="@id/ButtonFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_FlowDemoFragment"
+            app:destination="@id/FlowFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_PromoBannerFragment"
+            app:destination="@id/PromoBannerFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_FlowConfirmButtonDemoFragment"
+            app:destination="@id/FlowConfirmButtonFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ButtonFragment"
+        android:name="com.revolut.revolutpaylite.demo.view.RevolutPayButtonShowcaseFragment"
+        android:label="@string/revolut_pay_button"
+        tools:layout="@layout/fragment_revolut_pay_button_showcase" />
+
+    <fragment
+        android:id="@+id/FlowFragment"
+        android:name="com.revolut.revolutpaylite.demo.payment.RevolutPayButtonPaymentFragment"
+        android:label="@string/revolut_pay_flow"
+        tools:layout="@layout/fragment_revolut_pay_button_payment" />
+
+    <fragment
+        android:id="@+id/PromoBannerFragment"
+        android:name="com.revolut.revolutpaylite.demo.view.PromotionalBannerShowcaseFragment"
+        android:label="@string/revolut_pay_promo_banner_demo"
+        tools:layout="@layout/fragment_promotional_banner_showcase" />
+
+    <fragment
+        android:id="@+id/FlowConfirmButtonFragment"
+        android:name="com.revolut.revolutpaylite.demo.payment.CustomButtonPaymentFragment"
+        android:label="@string/revolut_pay_flow"
+        tools:layout="@layout/fragment_revolut_pay_button_payment" />
+
+</navigation>
