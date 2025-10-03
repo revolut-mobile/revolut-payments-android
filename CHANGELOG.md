@@ -26,4 +26,4 @@
 
 ### What's changed
 
-* Added a user-abandoned payment callback in the 
+* Check opaque urls before getting query parameters from the Uri to prevent UnsupportedOperationException
