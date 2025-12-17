@@ -2,6 +2,30 @@
 
 ## X SDK XX.XX.XX - 20XX-XX-XX
 
+
+## Revolut Pay SDK 3.1.0 - 2025-12-17
+
+### What's changed
+
+* Added SPM support
+* Added a new and improved Revolut Pay SDK
+
+## Revolut Pay Lite SDK 3.1.0 - 2025-12-17
+
+### What's changed
+
+* Added SPM support
+
+## Merchant Card Form SDK 3.1.0 - 2025-12-17
+
+### What's changed
+
+* Removed jitpack.io usages
+* Updated UserAgent
+* Improved insets
+* Clean up dependencies
+* MIT/CIT improvements
+
 ## Revolut Pay Lite SDK 3.0.0 - 2025-10-01
 
 ### What's changed
