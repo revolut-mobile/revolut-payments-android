@@ -2,6 +2,12 @@
 
 ## X SDK XX.XX.XX - 20XX-XX-XX
 
+## Revolut Pay SDK 3.1.2 - 2026-01-22
+
+### What's changed
+
+* Fixed an issue where the SDK would crash when selecting a country
+
 
 ## Revolut Pay SDK 3.1.1 - 2026-01-19
 
