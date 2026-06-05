@@ -17,6 +17,7 @@
         android:id="@+id/externalRevolutPay_OrderToken_EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textNoSuggestions"
         android:fontFamily="sans-serif-medium" />
 
     <Button
@@ -31,6 +32,13 @@
         android:layout_height="wrap_content"
         android:text="@string/revolut_pay_save_payment_method_for_merchant"
         android:layout_marginTop="16dp" />
+
+    <CheckBox
+        android:id="@+id/externalRevolutPay_RequestShipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/revolut_pay_request_shipping" />
 
     <Button
         android:id="@+id/confirm_button"

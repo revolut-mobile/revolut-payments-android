@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="preferred_mode">
+        <item>Retail</item>
+        <item>Retail-Only</item>
+        <item>Business</item>
+        <item>Business-Only</item>
+    </string-array>
+</resources>

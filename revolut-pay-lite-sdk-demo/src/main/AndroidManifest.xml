@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Declare Revolut app query: To allow the SDK to check if the Revolut app is installed. -->
-    <queries>
-        <package android:name="${revolutAppId}" />
-    </queries>
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application

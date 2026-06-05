@@ -2,6 +2,21 @@
 
 ## X SDK XX.XX.XX - 20XX-XX-XX
 
+## Revolut Pay SDK 3.2.0 - 2026-06-05
+
+### What's changed
+
+* Added preferredMode support in OrderParams (Retail, RetailOnly, Business, BusinessOnly)
+* Moved queries package declaration into the SDK manifest to simplify integration
+* Added packaging exclusion for META-INF resources to resolve build conflicts
+
+## Merchant Card Form SDK 3.2.0 - 2026-06-05
+
+### What's changed
+
+* Version alignment with Revolut Pay SDK 3.2.0
+* Added packaging exclusion for META-INF resources to resolve build conflicts
+
 ## Revolut Pay SDK 3.1.2 - 2026-01-22
 
 ### What's changed
