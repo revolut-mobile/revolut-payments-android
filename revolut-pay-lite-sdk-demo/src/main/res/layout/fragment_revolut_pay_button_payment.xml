@@ -18,7 +18,8 @@
         android:id="@+id/externalRevolutPay_OrderToken_EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium" />
+        android:fontFamily="sans-serif-medium"
+        android:inputType="textNoSuggestions" />
 
     <Button
         android:id="@+id/externalRevolutPay_ClearOrderToken"
@@ -32,6 +33,36 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/revolut_pay_save_payment_method_for_merchant" />
+
+    <CheckBox
+        android:id="@+id/externalRevolutPay_RequestShipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/revolut_pay_request_shipping" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="@string/revolut_pay_preferred_mode" />
+
+        <Spinner
+            android:id="@+id/externalRevolutPay_PreferredMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffdedede"
+            android:layout_marginStart="5dp"
+            android:paddingVertical="5dp" />
+
+    </LinearLayout>
 
     <com.revolut.revolutpay.api.RevolutPayButton
         android:id="@+id/externalRevolutPay_RevolutPayButton_ExtraSmall_WithoutBox"

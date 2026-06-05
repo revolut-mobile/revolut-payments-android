@@ -49,17 +49,23 @@ class CustomButtonPaymentFragment : Fragment() {
             confirmButton.setOnClickListener {
                 externalRevolutPayOrderTokenEditText.text.toString()
                     .takeIf { it.isNotBlank() }
-                    ?.let { orderToken -> pay(orderToken, externalRevolutPaySavePaymentMethodForMerchant.isChecked) }
+                    ?.let { orderToken ->
+                        pay(
+                            orderToken = orderToken,
+                            savePaymentMethodForMerchant = externalRevolutPaySavePaymentMethodForMerchant.isChecked,
+                            requestShipping = externalRevolutPayRequestShipping.isChecked
+                        )
+                    }
             }
         }
     }
 
-    private fun pay(orderToken: String, savePaymentMethodForMerchant: Boolean) {
+    private fun pay(orderToken: String, savePaymentMethodForMerchant: Boolean, requestShipping: Boolean) {
         paymentController.pay(
             orderParams = OrderParams(
                 orderToken = orderToken,
                 returnUri = "payments://revolut-pay-demo".toUri(),
-                requestShipping = false,
+                requestShipping = requestShipping,
                 savePaymentMethodForMerchant = savePaymentMethodForMerchant,
                 customer = null
             )

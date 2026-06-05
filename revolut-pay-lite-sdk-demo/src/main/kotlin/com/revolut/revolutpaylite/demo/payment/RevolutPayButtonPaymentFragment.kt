@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
@@ -13,6 +15,7 @@ import com.revolut.payments.RevolutPaymentsSDK
 import com.revolut.revolutpay.api.PaymentResult
 import com.revolut.revolutpay.api.bindPaymentState
 import com.revolut.revolutpay.api.order.OrderParams
+import com.revolut.revolutpay.api.order.PreferredMode
 import com.revolut.revolutpay.api.revolutPay
 import com.revolut.revolutpaylite.demo.R
 import kotlinx.coroutines.delay
@@ -56,6 +59,19 @@ class RevolutPayButtonPaymentFragment : Fragment() {
             externalRevolutPayRevolutPayButtonExtraSmallWithoutBox.setOnClickListener {
                 fetchParamsAndPay()
             }
+
+            setupPreferredModeSpinner()
+        }
+    }
+
+    private fun Binding.setupPreferredModeSpinner() {
+        ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.preferred_mode,
+            android.R.layout.simple_spinner_item,
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            externalRevolutPayPreferredMode.adapter = adapter
         }
     }
 
@@ -79,13 +95,25 @@ class RevolutPayButtonPaymentFragment : Fragment() {
 
     private suspend fun fetchOrderParams(): OrderParams {
         delay(500)
+        val binding = requireNotNull(binding)
         return OrderParams(
-            orderToken = requireNotNull(binding).externalRevolutPayOrderTokenEditText.text.toString(),
+            orderToken = binding.externalRevolutPayOrderTokenEditText.text.toString(),
             returnUri = "payments://revolut-pay-demo".toUri(),
-            requestShipping = false,
+            requestShipping = binding.externalRevolutPayRequestShipping.isChecked,
             customer = null,
-            savePaymentMethodForMerchant = requireNotNull(binding).externalRevolutPaySavePaymentMethodForMerchant.isChecked,
+            savePaymentMethodForMerchant = binding.externalRevolutPaySavePaymentMethodForMerchant.isChecked,
+            preferredMode = binding.externalRevolutPayPreferredMode.getPreferredMode(),
         )
+    }
+
+    private fun Spinner.getPreferredMode(): PreferredMode {
+        return when (selectedItem.toString().uppercase()) {
+            "RETAIL" -> PreferredMode.Retail
+            "RETAIL-ONLY" -> PreferredMode.RetailOnly
+            "BUSINESS" -> PreferredMode.Business
+            "BUSINESS-ONLY" -> PreferredMode.BusinessOnly
+            else -> PreferredMode.Retail
+        }
     }
 
     override fun onDestroyView() {

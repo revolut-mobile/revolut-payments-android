@@ -8,6 +8,8 @@
     <string name="revolut_pay_revolut_app_installation_check">Revolut Application Installation Check</string>
     <string name="revolut_pay_uikit_showcase">UiKit Showcase</string>
     <string name="revolut_pay_save_payment_method_for_merchant">Save Payment Method for Merchant</string>
+    <string name="revolut_pay_request_shipping">Request shipping</string>
+    <string name="revolut_pay_preferred_mode">Preferred mode:</string>
     <string name="order_token_clear">Clear order token</string>
     <string name="order_token_title">Order token</string>
     <string name="order_completed">Order completed</string>

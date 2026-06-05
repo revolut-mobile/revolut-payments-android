@@ -4,17 +4,26 @@ plugins {
 }
 
 android {
-    compileSdk 35
+    compileSdk 36
     namespace "com.revolut.merchantcardformsdkdemo"
 
     defaultConfig {
         applicationId "com.revolut.merchantcardformsdkdemo"
-        minSdk 24
+        minSdk 28
         targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    packaging {
+        resources {
+            excludes += [
+                    'META-INF/versions/9/OSGI-INF/MANIFEST.MF',
+                    'META-INF/versions/9/OSGI-INF/*.xml'
+            ]
+        }
     }
 
     buildTypes {
@@ -37,7 +46,7 @@ android {
 
 dependencies {
     // Revolut Merchant Card Form SDK
-    implementation 'com.revolut.payments:merchantcardform:3.1.2'
+    implementation 'com.revolut.payments:merchantcardform:3.2.0'
 
     implementation 'androidx.core:core-ktx:1.13.1'
     implementation 'androidx.appcompat:appcompat:1.7.1'
