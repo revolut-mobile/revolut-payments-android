@@ -29,15 +29,9 @@ android {
     }
 
     buildTypes {
-        debug {
-            manifestPlaceholders['revolutAppId'] = 'com.revolut.revolut.test'
-        }
-
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
-
-            manifestPlaceholders['revolutAppId'] = 'com.revolut.revolut'
         }
     }
     compileOptions {
@@ -65,8 +59,8 @@ android {
 
 dependencies {
     // Revolut Pay Lite SDK
-    revolutPayLiteImplementation 'com.revolut.payments:revolutpaylite:3.2.0'
-    revolutPayImplementation 'com.revolut.payments:revolutpay:3.2.0'
+    revolutPayLiteImplementation 'com.revolut.payments:revolutpaylite:3.3.0'
+    revolutPayImplementation 'com.revolut.payments:revolutpay:3.3.0'
 
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

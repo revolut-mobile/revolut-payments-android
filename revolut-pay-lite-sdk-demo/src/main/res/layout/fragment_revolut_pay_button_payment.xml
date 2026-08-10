@@ -73,6 +73,6 @@
         app:revolutPay_BoxTextCurrency="GBP"
         app:revolutPay_Radius="Medium"
         app:revolutPay_Size="Large"
-        app:revolutPay_VariantDarkTheme="Dark"
-        app:revolutPay_VariantLightTheme="Light" />
+        app:revolutPay_VariantDarkMode="Light"
+        app:revolutPay_VariantLightMode="Dark" />
 </LinearLayout>

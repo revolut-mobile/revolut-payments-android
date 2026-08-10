@@ -108,11 +108,11 @@ class RevolutPayButtonPaymentFragment : Fragment() {
 
     private fun Spinner.getPreferredMode(): PreferredMode {
         return when (selectedItem.toString().uppercase()) {
-            "RETAIL" -> PreferredMode.Retail
-            "RETAIL-ONLY" -> PreferredMode.RetailOnly
-            "BUSINESS" -> PreferredMode.Business
-            "BUSINESS-ONLY" -> PreferredMode.BusinessOnly
-            else -> PreferredMode.Retail
+            "RETAIL" -> PreferredMode.RETAIL
+            "RETAIL-ONLY" -> PreferredMode.RETAIL_ONLY
+            "BUSINESS" -> PreferredMode.BUSINESS
+            "BUSINESS-ONLY" -> PreferredMode.BUSINESS_ONLY
+            else -> PreferredMode.RETAIL
         }
     }
 
