@@ -2,6 +2,21 @@
 
 ## X SDK XX.XX.XX - 20XX-XX-XX
 
+## Revolut Pay SDK 3.3.0 - 2026-08-06
+
+### What's changed
+
+* Set payment state Abandoned in case when WebViewConfirmationActivity is closed without handling redirect
+* Align RevPay button customization with iOS
+* Add min sdk to analytics context in the RevPay SDK
+* fix missing spm state
+
+## Revolut Pay SDK 3.2.1 - 2026-06-23
+
+### What's changed
+
+* Replaced an old PascalCase enum vals of PreferredMode with the UPPER_CASE
+
 ## Revolut Pay SDK 3.2.0 - 2026-06-05
 
 ### What's changed

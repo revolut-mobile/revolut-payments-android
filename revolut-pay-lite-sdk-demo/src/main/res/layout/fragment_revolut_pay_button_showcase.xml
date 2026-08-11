@@ -90,8 +90,8 @@
                 app:revolutPay_BoxText="GetCashbackValue"
                 app:revolutPay_Radius="Medium"
                 app:revolutPay_Size="Medium"
-                app:revolutPay_VariantDarkTheme="Light"
-                app:revolutPay_VariantLightTheme="Dark" />
+                app:revolutPay_VariantDarkMode="Dark"
+                app:revolutPay_VariantLightMode="Light" />
 
             <com.revolut.revolutpay.api.RevolutPayButton
                 android:id="@+id/externalRevolutPay_RevolutPayButton_Large_WithoutBox"
@@ -103,8 +103,8 @@
                 app:revolutPay_BoxText="None"
                 app:revolutPay_Radius="Large"
                 app:revolutPay_Size="Large"
-                app:revolutPay_VariantDarkTheme="Dark"
-                app:revolutPay_VariantLightTheme="Light" />
+                app:revolutPay_VariantDarkMode="Light"
+                app:revolutPay_VariantLightMode="Dark" />
 
         </LinearLayout>
     </ScrollView>

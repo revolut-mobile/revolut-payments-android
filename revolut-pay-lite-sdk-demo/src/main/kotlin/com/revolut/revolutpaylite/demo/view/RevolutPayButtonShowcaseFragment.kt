@@ -73,7 +73,7 @@ class RevolutPayButtonShowcaseFragment : Fragment() {
             ButtonParams(
                 radius = Radius.MEDIUM,
                 buttonSize = Size.MEDIUM,
-                variantModes = VariantModes(),
+                variants = VariantModes(),
                 boxText = BoxText.GET_CASHBACK_VALUE,
                 boxTextCurrency = boxTextCurrency,
             )
