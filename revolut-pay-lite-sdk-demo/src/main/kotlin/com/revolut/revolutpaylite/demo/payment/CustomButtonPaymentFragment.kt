@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.revolut.payments.RevolutPaymentsSDK
@@ -14,6 +13,7 @@ import com.revolut.revolutpay.api.RevolutPaymentController
 import com.revolut.revolutpay.api.order.OrderParams
 import com.revolut.revolutpay.api.revolutPay
 import com.revolut.revolutpaylite.demo.R
+import com.revolut.revolutpaylite.demo.utils.showToast
 import com.revolut.revolutpaylite.demo.databinding.FragmentCustomButtonPaymentBinding as Binding
 
 class CustomButtonPaymentFragment : Fragment() {
@@ -24,8 +24,8 @@ class CustomButtonPaymentFragment : Fragment() {
         when (paymentResult) {
             is PaymentResult.Success -> showToast(R.string.order_completed)
             is PaymentResult.UserAbandonedPayment -> showToast(R.string.order_abandoned)
-            is PaymentResult.Failure -> showToast(R.string.order_failed).also {
-                Log.e("REVOLUT_PAY_SDK", paymentResult.exception.toString())
+            is PaymentResult.Failure -> showToast(paymentResult.errorMessage).also {
+                Log.e("REVOLUT_PAY_SDK", "code=${paymentResult.error.code}, message=${paymentResult.errorMessage}")
             }
         }
     }
@@ -71,6 +71,4 @@ class CustomButtonPaymentFragment : Fragment() {
             )
         )
     }
-
-    private fun showToast(resId: Int) = Toast.makeText(context, resId, Toast.LENGTH_LONG).show()
 }

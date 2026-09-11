@@ -2,6 +2,22 @@
 
 ## X SDK XX.XX.XX - 20XX-XX-XX
 
+## Merchant Card Form SDK 3.4.0 - 2026-10-09
+
+### What's changed
+
+* Edge-to-edge display for Merchant Card Form SDK on Android 15+
+* Added UI customization
+
+## Revolut Pay SDK 3.4.0 - 2026-10-09
+
+### What's changed
+
+* Added localized errors to Revolut Pay Lite SDK
+* Removed sessions call in Revolut Pay SDK
+* Removed hardcoded android:screenOrientation="portrait"
+* Edge-to-edge display for Revolut Pay SDK on Android 15+
+
 ## Revolut Pay SDK 3.3.0 - 2026-08-06
 
 ### What's changed
