@@ -59,8 +59,8 @@ android {
 
 dependencies {
     // Revolut Pay Lite SDK
-    revolutPayLiteImplementation 'com.revolut.payments:revolutpaylite:3.3.0'
-    revolutPayImplementation 'com.revolut.payments:revolutpay:3.3.0'
+    revolutPayLiteImplementation 'com.revolut.payments:revolutpaylite:3.4.0'
+    revolutPayImplementation 'com.revolut.payments:revolutpay:3.4.0'
 
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
