@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -18,6 +17,7 @@ import com.revolut.revolutpay.api.order.OrderParams
 import com.revolut.revolutpay.api.order.PreferredMode
 import com.revolut.revolutpay.api.revolutPay
 import com.revolut.revolutpaylite.demo.R
+import com.revolut.revolutpaylite.demo.utils.showToast
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import com.revolut.revolutpaylite.demo.databinding.FragmentRevolutPayButtonPaymentBinding as Binding
@@ -30,8 +30,8 @@ class RevolutPayButtonPaymentFragment : Fragment() {
         when (paymentResult) {
             is PaymentResult.Success -> showToast(R.string.order_completed)
             is PaymentResult.UserAbandonedPayment -> showToast(R.string.order_abandoned)
-            is PaymentResult.Failure -> showToast(R.string.order_failed).also {
-                Log.e("REVOLUT_PAY_SDK", paymentResult.exception.toString())
+            is PaymentResult.Failure -> showToast(paymentResult.errorMessage).also {
+                Log.e("REVOLUT_PAY_SDK", "code=${paymentResult.error.code}, message=${paymentResult.errorMessage}")
             }
         }
     }
@@ -120,6 +120,4 @@ class RevolutPayButtonPaymentFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
-
-    private fun showToast(resId: Int) = Toast.makeText(context, resId, Toast.LENGTH_LONG).show()
 }
